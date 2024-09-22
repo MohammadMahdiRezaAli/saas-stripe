@@ -8,16 +8,18 @@ import { getUser } from "@/utils/facades/serverFacades/userFacade";
 import { auth } from "@clerk/nextjs";
 
 export default async function completeOnboarding(payload: any) {
-  let result = { message: "Proceeding by force", organization: null };
+  let result = { message: "Proceeding by force", organization: null, success: true };
 
   try {
-    // Log the incoming payload
+    // Log incoming payload
     console.log("Received Payload:", payload);
 
     // Authenticate user
     const userClerk = auth();
     if (!userClerk) {
       console.error("Client Clerk not found. Proceeding anyway.");
+      result.success = false;
+      result.message = "Client Clerk not found, but proceeding.";
     } else {
       console.log("Authenticated User Clerk:", userClerk);
 
@@ -32,9 +34,11 @@ export default async function completeOnboarding(payload: any) {
           createdBy: userClerk.userId,
         });
         console.log("Organization created:", organization);
-        result.organization = organization;  // Save organization in result
+        result.organization = organization;
       } catch (orgError) {
         console.error("Error creating organization. Proceeding without org:", orgError);
+        result.success = false;
+        result.message = "Organization creation failed, proceeding.";
       }
 
       // Attempt to update user metadata
@@ -50,20 +54,21 @@ export default async function completeOnboarding(payload: any) {
         console.log("User metadata updated successfully");
       } catch (metaError) {
         console.error("Error updating user metadata. Proceeding anyway:", metaError);
+        result.success = false;
+        result.message = "Metadata update failed, proceeding.";
       }
     }
 
-    // Proceed with returning success even if errors occurred
     return JSON.stringify({
       ...result,
-      message: "Onboarding completed with some issues (if any)",
+      message: "Onboarding completed with issues (if any)",
     });
 
   } catch (error) {
-    // Log any general errors and proceed
-    console.error("Unexpected error during onboarding. Proceeding anyway:", error);
+    console.error("Unexpected error during onboarding:", error);
     return JSON.stringify({
-      message: "Onboarding completed, but faced unexpected issues",
+      success: false,
+      message: "Unexpected server error. Onboarding still completed with fallback.",
     });
   }
 }

@@ -1,6 +1,6 @@
-import { auth } from '@clerk/nextjs/server'
-import { redirect } from 'next/navigation'
-import React from 'react'
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,11 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Check if a user has completed onboarding
-  // If yes, redirect them to /dashboard
+  // Check if a user has completed onboarding and redirect if they have
   if (auth().sessionClaims?.metadata?.onboardingComplete === true) {
-    redirect('/home')
+    redirect("/home");
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }
