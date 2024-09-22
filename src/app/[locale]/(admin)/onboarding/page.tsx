@@ -2,24 +2,24 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import completeOnboarding from "@/actions/global/onboarding/complete-onboarding";
-import { toast } from "sonner";  // Toast for feedback
-import ReactConfetti from "react-confetti";  // Celebration after completion
-import { constants } from "@/lib/constants";  // App-wide constants
-import { useTranslations } from "next-intl";  // Localization
-import { useOrganizationList } from "@clerk/nextjs";  // Clerk for handling organizations
+import { toast } from "sonner";
+import ReactConfetti from "react-confetti";
+import { constants } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+import { useOrganizationList } from "@clerk/nextjs";
 
 export default function OnboardingPage() {
   const { setActive, isLoaded } = useOrganizationList();
-  const t = useTranslations("Onboarding");  // Translation hook
-  const [projectName, setProjectName] = useState("");  // Store the input value
-  const [isCompleted, setIsCompleted] = useState(false);  // Track onboarding completion
-  const [isLoading, setIsLoading] = useState(false);  // Track if submission is ongoing
+  const t = useTranslations("Onboarding");
+  const [projectName, setProjectName] = useState("");  // Store project name input
+  const [isCompleted, setIsCompleted] = useState(false);  // Onboarding completion state
+  const [isLoading, setIsLoading] = useState(false);  // Loading state for the button
   const [open, setOpen] = useState(true);  // Modal open/close state
 
-  // Form submission handler
+  // Function to handle form submission and complete onboarding
   const handleCompleteOnboarding = async () => {
     if (!projectName || projectName.trim().length === 0) {
-      toast.error("Project name is required.");  // Validate form input
+      toast.error("Project name is required.");  // Validate empty input
       return;
     }
 
@@ -27,11 +27,16 @@ export default function OnboardingPage() {
 
     try {
       const responseJson = await completeOnboarding({
-        applicationName: projectName.trim(),  // Clean up the project name input
+        applicationName: projectName.trim(),  // Send project name after trimming
       });
 
-      const response = JSON.parse(responseJson);
-      
+      // Check if responseJson is valid
+      if (!responseJson || responseJson === "undefined") {
+        throw new Error("Invalid response from server");
+      }
+
+      const response = JSON.parse(responseJson);  // Parse the response as JSON
+
       if (response.message === "ok" && response.organization) {
         if (isLoaded) {
           setActive({ organization: response.organization.id });
@@ -39,20 +44,18 @@ export default function OnboardingPage() {
         setIsCompleted(true);
         toast.success("Onboarding completed!");
 
-        // Redirect user after a short delay
         setTimeout(() => {
-          window.location.href = "/home";
-        }, 3000);  // Shorten delay for better user experience
+          window.location.href = "/home";  // Redirect after success
+        }, 3000);
 
       } else {
-        toast.error("Unexpected response. Please try again.");
+        toast.error("Unexpected response from the server.");
       }
 
     } catch (error) {
-      // Enhanced error logging for debugging purposes
-      console.error("Error during onboarding:", error?.response?.data || error.message);
-      toast.error("Error completing onboarding. Please try again later.");
-
+      // Log error and show feedback to the user
+      console.error("Error during onboarding:", error.message || error);
+      toast.error(`Error completing onboarding: ${error.message || "Unknown error"}`);
     } finally {
       setIsLoading(false);  // End loading state
     }
@@ -93,6 +96,7 @@ export default function OnboardingPage() {
                     <label htmlFor="organizationName">
                       {t("organizationName")}
                     </label>
+
                     <input
                       type="text"
                       className="input-text"
@@ -104,9 +108,8 @@ export default function OnboardingPage() {
                   </div>
                 </div>
 
-                {isCompleted && <ReactConfetti width={1000} height={1000} />}  {/* Confetti celebration */}
+                {isCompleted && <ReactConfetti width={1000} height={1000} />}  {/* Confetti on success */}
 
-                {/* Conditional rendering based on completion and loading state */}
                 {!isCompleted ? (
                   <button
                     onClick={handleCompleteOnboarding}

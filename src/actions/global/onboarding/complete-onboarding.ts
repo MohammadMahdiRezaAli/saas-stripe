@@ -8,43 +8,44 @@ import { getUser } from "@/utils/facades/serverFacades/userFacade";
 import { auth } from "@clerk/nextjs";
 
 export default async function completeOnboarding(payload: any) {
-  const userClerk = auth();
+  try {
+    const userClerk = auth();
+    
+    // Ensure userClerk exists
+    if (!userClerk) throw new Error("Client clerk not found");
 
-  if (!userClerk) throw new Error("client clerk not found");
-  const { userId } = await getUser(userClerk);
+    // Get user ID from Clerk
+    const { userId } = await getUser(userClerk);
 
-  let organization: any = null;
+    // Initialize organization variable
+    let organization: any = null;
 
-  await createClerkOrganization({
-    name: payload.applicationName || "",
-    createdBy: userClerk.userId,
-  })
-    .then((data: any) => {
-      organization = data;
-    })
-    .catch((error) => {
-      console.log("Error creating organization", error);
-      throw new Error("Error creating organization");
+    // Create Clerk organization
+    organization = await createClerkOrganization({
+      name: payload.applicationName || "",
+      createdBy: userClerk.userId,
     });
 
-  return await handleUpdateDataForUser({
-    scope: "publicMetadata",
-    userBdId: userId,
-    data: {
-      onboardingComplete: true,
-      applicationName: payload.applicationName || "", //Some data from the form
-    },
-  })
-    .then(() => {
-      return  JSON.stringify({
-        organization,
-        message: "ok",
-      });
-    })
-    .catch((error) => {
-      console.log("Error updating user metadata", error);
-
-      console.error("Error updating user metadata", error);
-      return "error";
+    // Update user metadata
+    await handleUpdateDataForUser({
+      scope: "publicMetadata",
+      userBdId: userId,
+      data: {
+        onboardingComplete: true,
+        applicationName: payload.applicationName || "",
+      },
     });
+
+    // Return successful response with the organization info
+    return JSON.stringify({
+      organization,
+      message: "ok",
+    });
+
+  } catch (error) {
+    console.error("Error in completeOnboarding:", error.message || error);
+
+    // Throw the error to be handled by the frontend
+    throw new Error(`Error completing onboarding: ${error.message || "Unknown error"}`);
+  }
 }
