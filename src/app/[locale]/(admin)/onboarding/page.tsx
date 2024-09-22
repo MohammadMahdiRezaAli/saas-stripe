@@ -2,8 +2,8 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import completeOnboarding from "@/actions/global/onboarding/complete-onboarding";
-import { toast } from "sonner";
-import ReactConfetti from "react-confetti";
+import { toast } from "sonner";  // Toast for notifications
+import ReactConfetti from "react-confetti";  // For confetti on success
 import { constants } from "@/lib/constants";
 import { useTranslations } from "next-intl";
 import { useOrganizationList } from "@clerk/nextjs";
@@ -11,31 +11,30 @@ import { useOrganizationList } from "@clerk/nextjs";
 export default function OnboardingPage() {
   const { setActive, isLoaded } = useOrganizationList();
   const t = useTranslations("Onboarding");
-  const [projectName, setProjectName] = useState("");  // Store project name input
-  const [isCompleted, setIsCompleted] = useState(false);  // Onboarding completion state
-  const [isLoading, setIsLoading] = useState(false);  // Loading state for the button
-  const [open, setOpen] = useState(true);  // Modal open/close state
+  const [projectName, setProjectName] = useState("");
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [open, setOpen] = useState(true);
 
-  // Function to handle form submission and complete onboarding
   const handleCompleteOnboarding = async () => {
     if (!projectName || projectName.trim().length === 0) {
-      toast.error("Project name is required.");  // Validate empty input
+      toast.error(t("projectNameRequired"));  // Validate empty input
       return;
     }
 
-    setIsLoading(true);  // Start loading state
+    setIsLoading(true);  // Start loading
 
     try {
       const responseJson = await completeOnboarding({
-        applicationName: projectName.trim(),  // Send project name after trimming
+        applicationName: projectName.trim(),
       });
 
-      // Check if responseJson is valid
+      // Validate responseJson
       if (!responseJson || responseJson === "undefined") {
         throw new Error("Invalid response from server");
       }
 
-      const response = JSON.parse(responseJson);  // Parse the response as JSON
+      const response = JSON.parse(responseJson);  // Parse the response
 
       if (response.message === "ok" && response.organization) {
         if (isLoaded) {
@@ -45,19 +44,17 @@ export default function OnboardingPage() {
         toast.success("Onboarding completed!");
 
         setTimeout(() => {
-          window.location.href = "/home";  // Redirect after success
+          window.location.href = "/home";  // Redirect on success
         }, 3000);
-
       } else {
         toast.error("Unexpected response from the server.");
       }
 
     } catch (error) {
-      // Log error and show feedback to the user
       console.error("Error during onboarding:", error.message || error);
       toast.error(`Error completing onboarding: ${error.message || "Unknown error"}`);
     } finally {
-      setIsLoading(false);  // End loading state
+      setIsLoading(false);  // End loading
     }
   };
 
@@ -103,7 +100,7 @@ export default function OnboardingPage() {
                       value={projectName}
                       onChange={(e) => setProjectName(e.target.value)}
                       placeholder={t("organizationName")}
-                      disabled={isLoading}  // Disable input while loading
+                      disabled={isLoading}  // Disable input during loading
                     />
                   </div>
                 </div>
@@ -114,7 +111,7 @@ export default function OnboardingPage() {
                   <button
                     onClick={handleCompleteOnboarding}
                     className={`btn-main w-[50%] mx-auto ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-                    disabled={isLoading}  // Disable button while loading
+                    disabled={isLoading}  // Disable button during loading
                   >
                     {isLoading ? t("loading") : t("completeOnboarding")}
                   </button>

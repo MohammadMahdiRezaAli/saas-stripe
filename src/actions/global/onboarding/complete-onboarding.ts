@@ -9,22 +9,24 @@ import { auth } from "@clerk/nextjs";
 
 export default async function completeOnboarding(payload: any) {
   try {
+    console.log("Received Payload:", payload);  // Log payload for debugging
+
     const userClerk = auth();
-    
+
     // Ensure userClerk exists
     if (!userClerk) throw new Error("Client clerk not found");
+    console.log("Authenticated User Clerk:", userClerk);  // Log Clerk auth details
 
     // Get user ID from Clerk
     const { userId } = await getUser(userClerk);
-
-    // Initialize organization variable
-    let organization: any = null;
+    console.log("Clerk User ID:", userId);  // Log fetched user ID
 
     // Create Clerk organization
-    organization = await createClerkOrganization({
+    const organization = await createClerkOrganization({
       name: payload.applicationName || "",
       createdBy: userClerk.userId,
     });
+    console.log("Organization created:", organization);  // Log created organization
 
     // Update user metadata
     await handleUpdateDataForUser({
@@ -35,8 +37,9 @@ export default async function completeOnboarding(payload: any) {
         applicationName: payload.applicationName || "",
       },
     });
+    console.log("User metadata updated successfully");
 
-    // Return successful response with the organization info
+    // Return success response
     return JSON.stringify({
       organization,
       message: "ok",
@@ -45,7 +48,7 @@ export default async function completeOnboarding(payload: any) {
   } catch (error) {
     console.error("Error in completeOnboarding:", error.message || error);
 
-    // Throw the error to be handled by the frontend
+    // Re-throw the error to handle it on the frontend
     throw new Error(`Error completing onboarding: ${error.message || "Unknown error"}`);
   }
 }
