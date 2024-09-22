@@ -8,68 +8,43 @@ import { getUser } from "@/utils/facades/serverFacades/userFacade";
 import { auth } from "@clerk/nextjs";
 
 export default async function completeOnboarding(payload: any) {
-  let result = { message: "Proceeding by force", organization: null, success: true };
+  const userClerk = auth();
 
-  try {
-    // Log incoming payload
-    console.log("Received Payload:", payload);
+  if (!userClerk) throw new Error("client clerk not found");
+  const { userId } = await getUser(userClerk);
 
-    // Authenticate user
-    const userClerk = auth();
-    if (!userClerk) {
-      console.error("Client Clerk not found. Proceeding anyway.");
-      result.success = false;
-      result.message = "Client Clerk not found, but proceeding.";
-    } else {
-      console.log("Authenticated User Clerk:", userClerk);
+  let organization: any = null;
 
-      // Get user from Clerk
-      const { userId } = await getUser(userClerk);
-      console.log("Clerk User ID:", userId);
-
-      // Attempt to create organization
-      try {
-        const organization = await createClerkOrganization({
-          name: payload.applicationName || "Untitled Project",
-          createdBy: userClerk.userId,
-        });
-        console.log("Organization created:", organization);
-        result.organization = organization;
-      } catch (orgError) {
-        console.error("Error creating organization. Proceeding without org:", orgError);
-        result.success = false;
-        result.message = "Organization creation failed, proceeding.";
-      }
-
-      // Attempt to update user metadata
-      try {
-        await handleUpdateDataForUser({
-          scope: "publicMetadata",
-          userBdId: userId,
-          data: {
-            onboardingComplete: true,
-            applicationName: payload.applicationName || "Untitled Project",
-          },
-        });
-        console.log("User metadata updated successfully");
-      } catch (metaError) {
-        console.error("Error updating user metadata. Proceeding anyway:", metaError);
-        result.success = false;
-        result.message = "Metadata update failed, proceeding.";
-      }
-    }
-
-    // Always return JSON response
-    return JSON.stringify({
-      ...result,
-      message: "Onboarding completed with issues (if any)",
+  await createClerkOrganization({
+    name: payload.applicationName || "",
+    createdBy: userClerk.userId,
+  })
+    .then((data: any) => {
+      organization = data;
+    })
+    .catch((error) => {
+      console.log("Error creating organization", error);
+      throw new Error("Error creating organization");
     });
 
-  } catch (error) {
-    console.error("Unexpected error during onboarding:", error);
-    return JSON.stringify({
-      success: false,
-      message: "Unexpected server error. Onboarding still completed with fallback.",
+  return await handleUpdateDataForUser({
+    scope: "publicMetadata",
+    userBdId: userId,
+    data: {
+      onboardingComplete: true,
+      applicationName: payload.applicationName || "", //Some data from the form
+    },
+  })
+    .then(() => {
+      return  JSON.stringify({
+        organization,
+        message: "ok",
+      });
+    })
+    .catch((error) => {
+      console.log("Error updating user metadata", error);
+
+      console.error("Error updating user metadata", error);
+      return "error";
     });
-  }
 }

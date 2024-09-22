@@ -13,36 +13,26 @@ export default function Example() {
   const t = useTranslations("Onboarding");
   const [projectName, setProjectName] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(true);
-
   const handleCompleteOnboarding = async () => {
-    setIsLoading(true);  // Start loading
-    try {
-      const rJson = await completeOnboarding({
-        applicationName: projectName,
-      });
-
-      const response = JSON.parse(rJson);
-      if (response.success) {
-        if (response.organization) {
+    await completeOnboarding({
+      applicationName: projectName,
+    })
+      .then((rJson: any) => {
+        const response = JSON.parse(rJson);
+        if (response.message === "ok" && response.organization) {
           isLoaded && setActive({ organization: response.organization.id });
+          setIsCompleted(true);
+          toast.success("Onboarding completed");
+          setTimeout(() => {
+            window.location.href = "/home";
+          }, 6000);
         }
-        setIsCompleted(true);
-        toast.success("Onboarding completed");
-
-        setTimeout(() => {
-          window.location.href = "/home";  // Redirect after completion
-        }, 6000);
-      } else {
-        toast.error(response.message || "Unexpected response from the server.");
-      }
-    } catch (e) {
-      console.error("Error completing onboarding:", e);
-      toast.error("Error completing onboarding");
-    } finally {
-      setIsLoading(false);  // Stop loading
-    }
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error("Error completing onboarding");
+      });
   };
 
   return (
@@ -73,29 +63,33 @@ export default function Example() {
             <Dialog.Panel className="mx-auto p-7 max-w-2xl transform divide-y divide-gray-500 divide-opacity-10 overflow-hidden rounded-xl bg-white bg-opacity-80 shadow-2xl ring-1 ring-black ring-opacity-5 backdrop-blur backdrop-filter transition-all">
               <div className="flex flex-col text-center">
                 <div className="mx-auto my-14">
-                  <h1 className="text-title">{t("welcome") + constants.appName}</h1>
+                  <h1 className="text-title">
+                    {t("welcome") + constants.appName}
+                  </h1>
                   <div className="mt-7 flex flex-col space-y-3">
-                    <label htmlFor="organizationName">{t("organizationName")}</label>
+                    <label htmlFor="organizationName">
+                      {t("organizationName")}
+                    </label>
+
                     <input
                       type="text"
                       className="input-text"
-                      value={projectName}
                       onChange={(e) => setProjectName(e.target.value)}
                       placeholder={t("organizationName")}
-                      disabled={isLoading}  // Disable input while loading
                     />
                   </div>
                 </div>
-
-                {isCompleted && <ReactConfetti width={1000} height={1000} />} {/* Confetti on success */}
-
-                <button
-                  onClick={handleCompleteOnboarding}
-                  className={`btn-main w-[50%] mx-auto ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
-                  disabled={isLoading}  // Disable button while loading
-                >
-                  {isLoading ? t("loading") : t("completeOnboarding")}
-                </button>
+                {isCompleted && <ReactConfetti width={1000} height={1000} />}
+                {!isCompleted ? (
+                  <button
+                    onClick={handleCompleteOnboarding}
+                    className="btn-main w-[50%] mx-auto"
+                  >
+                    {t("completeOnboarding")}
+                  </button>
+                ) : (
+                  <p className="animate-pulse"> {t("redirecting")} ...</p>
+                )}
               </div>
             </Dialog.Panel>
           </Transition.Child>
