@@ -59,6 +59,7 @@ export default async function completeOnboarding(payload: any) {
       }
     }
 
+    // Always return JSON response
     return JSON.stringify({
       ...result,
       message: "Onboarding completed with issues (if any)",

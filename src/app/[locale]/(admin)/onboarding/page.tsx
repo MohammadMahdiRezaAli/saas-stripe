@@ -24,8 +24,10 @@ export default function Example() {
       });
 
       const response = JSON.parse(rJson);
-      if (response.message === "ok" && response.organization) {
-        isLoaded && setActive({ organization: response.organization.id });
+      if (response.success) {
+        if (response.organization) {
+          isLoaded && setActive({ organization: response.organization.id });
+        }
         setIsCompleted(true);
         toast.success("Onboarding completed");
 
@@ -33,7 +35,7 @@ export default function Example() {
           window.location.href = "/home";  // Redirect after completion
         }, 6000);
       } else {
-        toast.error("Unexpected response from the server.");
+        toast.error(response.message || "Unexpected response from the server.");
       }
     } catch (e) {
       console.error("Error completing onboarding:", e);
