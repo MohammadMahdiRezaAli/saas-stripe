@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Check if a user has completed onboarding
-  // If yes, redirect them to /dashboard
+  // If yes, redirect them to /home
   if (auth().sessionClaims?.metadata?.onboardingComplete === true) {
     redirect('/home')
   }

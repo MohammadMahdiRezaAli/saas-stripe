@@ -14,6 +14,7 @@ export default function Example() {
   const [projectName, setProjectName] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
   const [open, setOpen] = useState(true);
+
   const handleCompleteOnboarding = async () => {
     await completeOnboarding({
       applicationName: projectName,
@@ -35,6 +36,10 @@ export default function Example() {
       });
   };
 
+  const handleSkipOnboarding = () => {
+    window.location.href = "/home";
+  };
+
   return (
     <Transition.Root show={open} as={Fragment} appear>
       <Dialog as="div" className="relative z-10" onClose={() => setOpen(true)}>
@@ -51,48 +56,44 @@ export default function Example() {
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto p-4 sm:p-6 md:p-20">
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0 scale-95"
-            enterTo="opacity-100 scale-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95"
-          >
-            <Dialog.Panel className="mx-auto p-7 max-w-2xl transform divide-y divide-gray-500 divide-opacity-10 overflow-hidden rounded-xl bg-white bg-opacity-80 shadow-2xl ring-1 ring-black ring-opacity-5 backdrop-blur backdrop-filter transition-all">
-              <div className="flex flex-col text-center">
-                <div className="mx-auto my-14">
-                  <h1 className="text-title">
-                    {t("welcome") + constants.appName}
-                  </h1>
-                  <div className="mt-7 flex flex-col space-y-3">
-                    <label htmlFor="organizationName">
-                      {t("organizationName")}
-                    </label>
+          <div className="relative mx-auto max-w-3xl max-h-full transform overflow-hidden rounded-xl bg-white bg-opacity-80 shadow-2xl ring-1 ring-black ring-opacity-5 backdrop-blur backdrop-filter transition-all">
+            <div className="flex flex-col text-center">
+              <div className="mx-auto my-14">
+                <h1 className="text-title">
+                  {t("welcome") + constants.appName}
+                </h1>
+                <div className="mt-7 flex flex-col space-y-3">
+                  <label htmlFor="organizationName">
+                    {t("organizationName")}
+                  </label>
 
-                    <input
-                      type="text"
-                      className="input-text"
-                      onChange={(e) => setProjectName(e.target.value)}
-                      placeholder={t("organizationName")}
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    className="input-text"
+                    onChange={(e) => setProjectName(e.target.value)}
+                    placeholder={t("organizationName")}
+                  />
                 </div>
-                {isCompleted && <ReactConfetti width={1000} height={1000} />}
-                {!isCompleted ? (
-                  <button
-                    onClick={handleCompleteOnboarding}
-                    className="btn-main w-[50%] mx-auto"
-                  >
-                    {t("completeOnboarding")}
-                  </button>
-                ) : (
-                  <p className="animate-pulse"> {t("redirecting")} ...</p>
-                )}
               </div>
-            </Dialog.Panel>
-          </Transition.Child>
+              {isCompleted && <ReactConfetti width={1000} height={1000} />}
+              {!isCompleted ? (
+                <button
+                  onClick={handleCompleteOnboarding}
+                  className="btn-main w-[50%] mx-auto"
+                >
+                  {t("completeOnboarding")}
+                </button>
+              ) : (
+                <p className="animate-pulse"> {t("redirecting")} ...</p>
+              )}
+              <button
+                onClick={handleSkipOnboarding}
+                className="btn-secondary w-[50%] mx-auto"
+              >
+                {t("skipOnboarding")}
+              </button>
+            </div>
+          </div>
         </div>
       </Dialog>
     </Transition.Root>
