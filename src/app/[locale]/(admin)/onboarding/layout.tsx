@@ -1,6 +1,6 @@
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
-import React from 'react';
+import { auth } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
+import React from 'react'
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,8 +8,11 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Bypass onboarding entirely by always redirecting to /home
-  redirect('/home');
+  // Check if a user has completed onboarding
+  // If yes, redirect them to /dashboard
+  if (auth().sessionClaims?.metadata?.onboardingComplete === true) {
+    redirect('/home')
+  }
 
-  return <>{children}</>;
+  return <>{children}</>
 }
