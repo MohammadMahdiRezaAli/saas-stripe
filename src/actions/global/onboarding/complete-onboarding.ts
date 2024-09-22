@@ -9,26 +9,30 @@ import { auth } from "@clerk/nextjs";
 
 export default async function completeOnboarding(payload: any) {
   try {
-    console.log("Received Payload:", payload);  // Log payload for debugging
+    // Log the incoming payload for clarity
+    console.log("Received Payload:", payload);
 
     const userClerk = auth();
 
-    // Ensure userClerk exists
-    if (!userClerk) throw new Error("Client clerk not found");
-    console.log("Authenticated User Clerk:", userClerk);  // Log Clerk auth details
+    // Log authentication info and handle missing authentication
+    if (!userClerk) {
+      console.error("Client Clerk not found or user not authenticated.");
+      throw new Error("Client Clerk not found");
+    }
+    console.log("Authenticated User Clerk:", userClerk);
 
-    // Get user ID from Clerk
+    // Get user ID from Clerk and log it
     const { userId } = await getUser(userClerk);
-    console.log("Clerk User ID:", userId);  // Log fetched user ID
+    console.log("Clerk User ID:", userId);
 
-    // Create Clerk organization
+    // Create Clerk organization and log the output
     const organization = await createClerkOrganization({
       name: payload.applicationName || "",
       createdBy: userClerk.userId,
     });
-    console.log("Organization created:", organization);  // Log created organization
+    console.log("Organization created:", organization);
 
-    // Update user metadata
+    // Update user metadata and log confirmation
     await handleUpdateDataForUser({
       scope: "publicMetadata",
       userBdId: userId,
@@ -39,16 +43,17 @@ export default async function completeOnboarding(payload: any) {
     });
     console.log("User metadata updated successfully");
 
-    // Return success response
+    // Return success response with the organization info
     return JSON.stringify({
       organization,
       message: "ok",
     });
 
   } catch (error) {
+    // Log detailed error information for debugging
     console.error("Error in completeOnboarding:", error.message || error);
-
-    // Re-throw the error to handle it on the frontend
+    
+    // Re-throw the error to ensure it can be handled on the frontend
     throw new Error(`Error completing onboarding: ${error.message || "Unknown error"}`);
   }
 }
