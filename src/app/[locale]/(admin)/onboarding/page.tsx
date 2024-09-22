@@ -3,8 +3,13 @@ import { useEffect } from "react";
 
 export default function Example() {
   useEffect(() => {
-    // Redirect using window.location
-    window.location.href = "/home";
+    // Check if we are already on the target page to avoid redirect loop
+    if (window.location.pathname !== "/home") {
+      // Add a small delay before redirecting to avoid multiple refreshes
+      setTimeout(() => {
+        window.location.href = "/home";
+      }, 1000); // 1 second delay
+    }
   }, []);
 
   return (
