@@ -15,6 +15,7 @@ export default authMiddleware({
     "/test",
     "/api/clerk",
     "/api/stripe",
+    "/api/stripe",
     "/api/test",
     "/api/cron",
     "/:locale",
@@ -30,8 +31,8 @@ export default authMiddleware({
     let hostname = req.headers
       .get("host")!
       .replace(".localhost:3000", `.${process.env.NEXT_PUBLIC_ROOT_DOMAIN}`);
-    const { userId } = auth;  // Removed sessionClaims and orgId as they are not used.
-
+    const { userId, sessionClaims, orgId } = auth;
+    
     // For user visiting /onboarding, don't try and redirect
     if (userId && req.nextUrl.pathname.includes("onboarding") && !auth.isPublicRoute) {
       return NextResponse.next();
@@ -41,10 +42,11 @@ export default authMiddleware({
     if (!userId && !auth.isPublicRoute) {
       return redirectToSignIn({ returnBackUrl: req.url });
     }
+      
 
-    // Uncomment and refine the onboarding logic if needed:
-    // Catch users who don't have `onboardingComplete: true` in PublicMetadata
-    if (userId && !auth.isPublicRoute && !auth?.sessionClaims?.metadata?.onboardingComplete) {
+    // Catch users who doesn't have `onboardingComplete: true` in PublicMetata
+    // Redirect them to the /onboading out to complete onboarding
+    if (userId && !orgId && !sessionClaims?.metadata?.onboardingComplete && !auth.isPublicRoute) {
       const onboardingUrl = new URL("/onboarding", req.url);
       return NextResponse.redirect(onboardingUrl);
     }
@@ -56,9 +58,12 @@ export default authMiddleware({
     if (auth.isPublicRoute) return NextResponse.next();
 
     const searchParams = req.nextUrl.searchParams.toString();
-    const path = `${url.pathname}${searchParams.length > 0 ? `?${searchParams}` : ""}`;
+    // Get the pathname of the request (e.g. /, /about, /blog/first-post)
+    const path = `${url.pathname}${
+      searchParams.length > 0 ? `?${searchParams}` : ""
+    }`;
 
-    // Rewrite root application to `/home` folder
+    // rewrite root application to `/home` folder
     if (
       hostname === "localhost:3000" ||
       hostname === process.env.NEXT_PUBLIC_ROOT_DOMAIN
@@ -66,8 +71,9 @@ export default authMiddleware({
       return NextResponse.next();
     }
 
-    // Rewrite everything else to `/[domain]/[slug]` dynamic route
+    // rewrite everything else to `/[domain]/[slug] dynamic route
     return NextResponse.rewrite(new URL(`/${hostname}${path}`, req.url));
+    // Allow users visiting public routes to access them
   },
 });
 
