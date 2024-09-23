@@ -46,10 +46,10 @@ export default authMiddleware({
 
     // Catch users who doesn't have `onboardingComplete: true` in PublicMetata
     // Redirect them to the /onboading out to complete onboarding
-    if (userId && !orgId && !sessionClaims?.metadata?.onboardingComplete && !auth.isPublicRoute) {
-      const onboardingUrl = new URL("/onboarding", req.url);
-      return NextResponse.redirect(onboardingUrl);
-    }
+    // if (userId && !orgId && !sessionClaims?.metadata?.onboardingComplete && !auth.isPublicRoute) {
+   //   const onboardingUrl = new URL("/onboarding", req.url);
+   //   return NextResponse.redirect(onboardingUrl);
+   // }
 
     // User is logged in and the route is protected - let them view.
     if (userId && !auth.isPublicRoute) return NextResponse.next();
