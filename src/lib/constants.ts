@@ -1,8 +1,8 @@
 export const constants = {
   appUrl: "https://backpr.com",
   appName: "BackPR",
-  logoUrl: "/assets/img/final-backpr-day-mode.png",
-  logoDarkUrl: "/assets/img/final-backpr-night-mode.png",
+  logoUrl: "/assets/img/backpr.png",
+  logoDarkUrl: "/assets/img/backpr-night.png",
   appResume: "Where Loyalty Fuels Growth",
   demoMode: process.env.NEXT_PUBLIC_DEMO_MODE === "true",
   portalStripe: process.env.NEXT_PUBLIC_STRIPE_PORTAL
