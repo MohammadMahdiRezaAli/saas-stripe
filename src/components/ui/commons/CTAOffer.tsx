@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function CTAOffer() {
   return (
-    <div className="bg-white py-16"> {/* Adjusted padding for more space */}
-      <div className="px-8 pb-24 sm:px-12 lg:px-16"> {/* Increased horizontal padding */}
+    <div className="bg-white py-12"> {/* Reduced padding for more compact view */}
+      <div className="px-6 pb-20 sm:px-8 lg:px-10"> {/* Adjusted horizontal padding */}
         <div className="mx-auto max-w-5xl text-center"> {/* Centered container with max width */}
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Award-Winning Software
@@ -14,9 +14,9 @@ export default function CTAOffer() {
         </div>
 
         {/* Awards Grid Section */}
-        <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-4"> {/* Adjusted margins and gaps */}
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4"> {/* Reduced gap between items */}
           {/* Image 1 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center"> {/* Ensured square aspect ratio */}
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md"> {/* Changed padding and rounded corners */}
             <Image
               src="/assets/images/1.png"
               alt="Award 1"
@@ -27,7 +27,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 2 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/2.png"
               alt="Award 2"
@@ -38,7 +38,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 3 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/3.png"
               alt="Award 3"
@@ -49,7 +49,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 4 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/4.png"
               alt="Award 4"
@@ -60,7 +60,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 5 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/5.png"
               alt="Award 5"
@@ -71,7 +71,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 6 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/6.png"
               alt="Award 6"
@@ -82,7 +82,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 7 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/7.png"
               alt="Award 7"
@@ -93,7 +93,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Image 8 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
+          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
             <Image
               src="/assets/images/8.png"
               alt="Award 8"
