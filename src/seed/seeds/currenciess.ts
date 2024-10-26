@@ -5,14 +5,14 @@ export const currencies = [
     rate: 1,
     main: 1,
   },
-  {
-    name: "BRL",
-    code: "brl",
-    rate: 5,
-  },
-  {
-    name: "CUP",
-    code: "cup",
-    rate: 275,
-  },
+//  {
+  //  name: "BRL",
+    //code: "brl",
+   // rate: 5,
+//  },
+ // {
+  //  name: "CUP",
+ //   code: "cup",
+ //   rate: 275,
+ // },
 ];

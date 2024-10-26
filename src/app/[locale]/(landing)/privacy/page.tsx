@@ -61,8 +61,8 @@ const PolicyPrivacy = () => {
             <p>
               If you have any questions about this Privacy Policy, please
               contact us at{" "}
-              <a href="mailto:contact@hostingclan.com">
-                contact@hostingclan.com
+              <a href="mailto:contact@backpr.com">
+                contact@backpr.com
               </a>
               .
             </p>

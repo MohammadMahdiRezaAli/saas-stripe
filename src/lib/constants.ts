@@ -1,9 +1,9 @@
 export const constants = {
-  appUrl: "https://hostingclan.com",
-  appName: "Boilerplate",
-  logoUrl: "/assets/img/logo-next-14-white.png",
-  logoDarkUrl: "/assets/img/logo-next-14-dark.png",
-  appResume: "The best boilerplate in Next 14.",
+  appUrl: "https://backpr.com",
+  appName: "BackPR",
+  logoUrl: "/assets/img/final-backpr-day-mode.png",
+  logoDarkUrl: "/assets/img/final-backpr-night-mode.png",
+  appResume: "Where Loyalty Fuels Growth",
   demoMode: process.env.NEXT_PUBLIC_DEMO_MODE === "true",
   portalStripe: process.env.NEXT_PUBLIC_STRIPE_PORTAL
 };

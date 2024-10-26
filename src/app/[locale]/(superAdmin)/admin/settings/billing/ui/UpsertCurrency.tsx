@@ -32,7 +32,7 @@ const UpsertCurrency = ({
       label: "Code",
       type: "text",
       required: true,
-      note: "Currency Code in lowercase. ej: usd, brl, eur, etc.",
+      note: "Currency Code in lowercase. ej: usd, eur, etc.",
     },
     {
       name: "main",

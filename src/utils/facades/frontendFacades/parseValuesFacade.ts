@@ -12,24 +12,24 @@ export const parsePriceInLocalCurrency = (
     currency: "EUR",
   });
 
-  let BRL = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-  let CUP = new Intl.NumberFormat("es-CU", {
-    style: "currency",
-    currency: "CUP",
-  });
+ // let BRL = new Intl.NumberFormat("pt-BR", {
+  //  style: "currency",
+  //  currency: "BRL",
+ // });
+ // let CUP = new Intl.NumberFormat("es-CU", {
+  //  style: "currency",
+  //  currency: "CUP",
+ // });
 
   switch (currencyCode) {
     case "usd":
       return `  ${USDollar.format(price)}`;
     case "eur":
       return `  ${Euro.format(price)}`;
-    case "brl":
-      return `  ${BRL.format(price)}`;
-    case "cup":
-      return `  ${CUP.format(price)}`;
+  //  case "brl":
+  //    return `  ${BRL.format(price)}`;
+  //  case "cup":
+  //    return `  ${CUP.format(price)}`;
 
     default:
       return `  ${USDollar.format(price)}`;

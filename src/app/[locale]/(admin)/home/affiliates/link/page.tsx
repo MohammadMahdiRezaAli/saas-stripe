@@ -32,7 +32,7 @@ const LinkPage = async () => {
                 className="cursor-pointer"
                 readOnly
                 type="text"
-                value={`https://hostingclan.com?aff=${user.id}`}
+                value={`https://backpr.com?aff=${user.id}`}
               />
               <CopyLinkButton userId={user.id} />
             </div>
