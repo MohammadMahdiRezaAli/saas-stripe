@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa'; // Importing Email and Phone icons
 
 const navigation = {
   solutions: [
@@ -50,19 +51,19 @@ export default function FooterLanding() {
             <div>
               <h3 className="text-white text-lg">Jumbula</h3>
               <address className="not-italic space-y-2">
-                <p className="text-sm text-gray-400">
-                  <span>Email: </span>contact@jumbula.com
+                <p className="text-sm text-gray-400 flex items-center">
+                  <FaEnvelope className="mr-2" /> contact@jumbula.com
                 </p>
-                <p className="text-sm text-gray-400">
-                  <span>Phone: </span>(650) 502-0350
+                <p className="text-sm text-gray-400 flex items-center">
+                  <FaPhoneAlt className="mr-2" /> (650) 502-0350
                 </p>
                 <p className="text-sm text-gray-400">
                   1900 S. Norfolk Street, Suite 350 <br />
                   San Mateo, CA 94403
                 </p>
               </address>
-              {/* Store Icons */}
-              <div className="flex space-x-4">
+              {/* Store Icons with margin adjustment */}
+              <div className="flex space-x-4 mt-4"> {/* Added margin-top */}
                 <Image
                   src="/assets/img/play-store.svg"
                   alt="Google Play"
