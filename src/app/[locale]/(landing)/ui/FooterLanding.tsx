@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const navigation = {
   solutions: [
@@ -15,18 +16,6 @@ const navigation = {
     { name: "Knowledge Base", href: "#" },
     { name: "Integration Apps", href: "#" },
   ],
-  vertical: [
-    { name: "STEM", href: "#" },
-    { name: "Sports", href: "#" },
-    { name: "Chess", href: "#" },
-    { name: "Performing arts", href: "#" },
-    { name: "Language Centers", href: "#" },
-  ],
-  company: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Service Agreements", href: "#" },
-    { name: "Pricing", href: "#" },
-  ],
   industry: [
     { name: "Class", href: "#" },
     { name: "Camp", href: "#" },
@@ -35,12 +24,17 @@ const navigation = {
     { name: "Providers", href: "#" },
     { name: "Faith Organizations", href: "#" },
   ],
+  company: [
+    { name: "Privacy Policy", href: "#" },
+    { name: "Service Agreements", href: "#" },
+    { name: "Pricing", href: "#" },
+  ],
   social: [
-    { name: "LinkedIn", href: "#", icon: "LinkedIn Icon" },
-    { name: "Facebook", href: "#", icon: "Facebook Icon" },
-    { name: "Instagram", href: "#", icon: "Instagram Icon" },
-    { name: "Twitter", href: "#", icon: "Twitter Icon" }, // Represented by X in screenshot
-    { name: "YouTube", href: "#", icon: "YouTube Icon" },
+    { name: "LinkedIn", href: "#", icon: <FaLinkedin /> },
+    { name: "Facebook", href: "#", icon: <FaFacebook /> },
+    { name: "Instagram", href: "#", icon: <FaInstagram /> },
+    { name: "Twitter", href: "#", icon: <FaTwitter /> },
+    { name: "YouTube", href: "#", icon: <FaYoutube /> },
   ],
 };
 
@@ -70,13 +64,13 @@ export default function FooterLanding() {
               {/* Store Icons */}
               <div className="flex space-x-4">
                 <Image
-                  src="/path-to-play-store-icon.png"
+                  src="/assets/img/google-play-icon.png"
                   alt="Google Play"
                   width={30}
                   height={30}
                 />
                 <Image
-                  src="/path-to-app-store-icon.png"
+                  src="/assets/img/app-store-icon.png"
                   alt="App Store"
                   width={30}
                   height={30}
@@ -95,10 +89,7 @@ export default function FooterLanding() {
                     className="text-gray-500 hover:text-gray-400"
                   >
                     <span className="sr-only">{item.name}</span>
-                    {/* Placeholder icons */}
-                    <div className="h-6 w-6 bg-gray-500 rounded-full flex items-center justify-center">
-                      {item.icon}
-                    </div>
+                    {item.icon}
                   </a>
                 ))}
               </div>
@@ -147,10 +138,10 @@ export default function FooterLanding() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">
-                  Vertical
+                  Industry
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.vertical.map((item) => (
+                  {navigation.industry.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -180,23 +171,31 @@ export default function FooterLanding() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div>
-              <h3 className="text-sm font-semibold leading-6 text-white">
-                Industry
-              </h3>
-              <ul role="list" className="mt-6 space-y-4">
-                {navigation.industry.map((item) => (
-                  <li key={item.name}>
-                    <a
-                      href={item.href}
-                      className="text-sm leading-6 text-gray-300 hover:text-white"
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+        {/* Footer Bottom Section */}
+        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+          <div className="flex flex-col lg:flex-row justify-between">
+            <p className="text-xs leading-5 text-gray-400">
+              &copy; {new Date().getFullYear()} BackPR.com, Inc. All rights reserved.
+            </p>
+            <div className="text-xs flex space-x-3 items-center leading-5 text-gray-400">
+              <span>USD / EUR / JPY / GBP / CHF / ₿ / Ł</span>
+              <Image
+                src="/assets/img/stripeCards.png"
+                alt="Supported Cards"
+                width={177}
+                height={30}
+                className="inline"
+              />
+              <Image
+                src="/assets/img/btc.png"
+                alt="Bitcoin Accepted"
+                width={35}
+                height={30}
+                className="inline"
+              />
             </div>
           </div>
         </div>
