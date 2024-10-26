@@ -1,40 +1,46 @@
-import { constants } from "@/lib/constants";
 import Image from "next/image";
 
 const navigation = {
   solutions: [
-    { name: "Advanced Development", href: "#services" },
-    { name: "SaaS Development", href: "#saas" },
-    { name: "Corporate Development", href: "#corporate" },
+    { name: "Online Registration", href: "#" },
+    { name: "Online Payment", href: "#" },
+    { name: "Web Design & SEO", href: "#" },
+    { name: "Enterprise Solutions", href: "#" },
+    { name: "Business Marketing", href: "#" },
   ],
-  support: [
-    { name: "Pricing", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-    { name: "API Status", href: "#" },
+  resources: [
+    { name: "Blog", href: "#" },
+    { name: "About us", href: "#" },
+    { name: "Contact us", href: "#" },
+    { name: "Knowledge Base", href: "#" },
+    { name: "Integration Apps", href: "#" },
+  ],
+  vertical: [
+    { name: "STEM", href: "#" },
+    { name: "Sports", href: "#" },
+    { name: "Chess", href: "#" },
+    { name: "Performing arts", href: "#" },
+    { name: "Language Centers", href: "#" },
   ],
   company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Partners", href: "#" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Service Agreements", href: "#" },
+    { name: "Pricing", href: "#" },
   ],
-  legal: [
-    { name: "Claim", href: "#" },
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+  industry: [
+    { name: "Class", href: "#" },
+    { name: "Camp", href: "#" },
+    { name: "Childcare", href: "#" },
+    { name: "Afterschool", href: "#" },
+    { name: "Providers", href: "#" },
+    { name: "Faith Organizations", href: "#" },
   ],
   social: [
-    {
-      name: "Twitter",
-      href: "https://twitter.com/SaaSFactoryDev",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-        </svg>
-      ),
-    },
+    { name: "LinkedIn", href: "#", icon: "LinkedIn Icon" },
+    { name: "Facebook", href: "#", icon: "Facebook Icon" },
+    { name: "Instagram", href: "#", icon: "Instagram Icon" },
+    { name: "Twitter", href: "#", icon: "Twitter Icon" }, // Represented by X in screenshot
+    { name: "YouTube", href: "#", icon: "YouTube Icon" },
   ],
 };
 
@@ -45,32 +51,62 @@ export default function FooterLanding() {
         Footer
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div className="xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="space-y-8">
-            <Image
-              className="h-auto"
-              width={175}
-              height={160}
-              src={constants.logoUrl}
-              alt="Logo CluzStudio"
-            />
-            <p className="text-sm leading-6 text-gray-300">
-              {constants.appResume}
-            </p>
-            <div className="flex space-x-6">
-              {navigation.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-500 hover:text-gray-400"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6" aria-hidden="true" />
-                </a>
-              ))}
+            <div>
+              <h3 className="text-white text-lg">Jumbula</h3>
+              <address className="not-italic space-y-2">
+                <p className="text-sm text-gray-400">
+                  <span>Email: </span>contact@jumbula.com
+                </p>
+                <p className="text-sm text-gray-400">
+                  <span>Phone: </span>(650) 502-0350
+                </p>
+                <p className="text-sm text-gray-400">
+                  1900 S. Norfolk Street, Suite 350 <br />
+                  San Mateo, CA 94403
+                </p>
+              </address>
+              {/* Store Icons */}
+              <div className="flex space-x-4">
+                <Image
+                  src="/path-to-play-store-icon.png"
+                  alt="Google Play"
+                  width={30}
+                  height={30}
+                />
+                <Image
+                  src="/path-to-app-store-icon.png"
+                  alt="App Store"
+                  width={30}
+                  height={30}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="text-white text-md">Social Media</h4>
+              <div className="flex space-x-4">
+                {/* Social Media Icons */}
+                {navigation.social.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-500 hover:text-gray-400"
+                  >
+                    <span className="sr-only">{item.name}</span>
+                    {/* Placeholder icons */}
+                    <div className="h-6 w-6 bg-gray-500 rounded-full flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+
+          {/* Footer Links */}
+          <div className="grid grid-cols-2 gap-8 col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">
@@ -91,10 +127,10 @@ export default function FooterLanding() {
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-white">
-                  Support
+                  Resources
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -107,8 +143,26 @@ export default function FooterLanding() {
                 </ul>
               </div>
             </div>
+
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
+                <h3 className="text-sm font-semibold leading-6 text-white">
+                  Vertical
+                </h3>
+                <ul role="list" className="mt-6 space-y-4">
+                  {navigation.vertical.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={item.href}
+                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-white">
                   Company
                 </h3>
@@ -125,48 +179,24 @@ export default function FooterLanding() {
                   ))}
                 </ul>
               </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Legal
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-300 hover:text-white"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <div className="flex flex-col lg:flex-row justify-between">
-            <p className="text-xs leading-5 text-gray-400">
-              &copy; {new Date().getFullYear()} BackPR.com, Inc. All rights reserved.
-            </p>
-            <div className="text-xs flex space-x-3 items-center leading-5 text-gray-400">
-              <span>USD / EUR / JPY / GBP / CHF / ₿ / Ł</span>
-              <Image
-                src="/assets/img/stripeCards.png"
-                alt="Supported Cards"
-                width={177}
-                height={30}
-                className="inline"
-              />
-              <Image
-                src="/assets/img/btc.png"
-                alt="Bitcoin Accepted"
-                width={35}
-                height={30}
-                className="inline"
-              />
+            <div>
+              <h3 className="text-sm font-semibold leading-6 text-white">
+                Industry
+              </h3>
+              <ul role="list" className="mt-6 space-y-4">
+                {navigation.industry.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-sm leading-6 text-gray-300 hover:text-white"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
