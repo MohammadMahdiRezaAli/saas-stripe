@@ -55,7 +55,7 @@ export default function FooterLanding() {
                   <FaEnvelope className="mr-2" /> contact@backpr.com
                 </p>
                 <p className="text-sm text-gray-400 flex items-center">
-                  <FaPhoneAlt className="mr-2" /> (650) 502-0350
+                  <FaPhoneAlt className="mr-2" /> (773) 234-7855
                 </p>
                 <p className="text-sm text-gray-400">
                   600 Matheson Blvd W Unit 5, Mississauga, <br />
