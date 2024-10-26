@@ -64,13 +64,13 @@ export default function FooterLanding() {
               {/* Store Icons */}
               <div className="flex space-x-4">
                 <Image
-                  src="/assets/img/google-play-icon.png"
+                  src="/assets/img/play-store.svg"
                   alt="Google Play"
                   width={30}
                   height={30}
                 />
                 <Image
-                  src="/assets/img/app-store-icon.png"
+                  src="/assets/img/apple.svg"
                   alt="App Store"
                   width={30}
                   height={30}
