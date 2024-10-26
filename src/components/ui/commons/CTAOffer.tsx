@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function CTAOffer() {
   return (
-    <div className="bg-white py-12"> {/* Reduced padding for more compact view */}
-      <div className="px-6 pb-20 sm:px-8 lg:px-10"> {/* Adjusted horizontal padding */}
-        <div className="mx-auto max-w-5xl text-center"> {/* Centered container with max width */}
+    <div className="bg-white py-16"> {/* Adjust overall padding */}
+      <div className="container mx-auto px-8 pb-24"> {/* Center the container on the page */}
+        <div className="mx-auto max-w-6xl text-center"> {/* Adjusted max-width for the content */}
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             Award-Winning Software
           </h2>
@@ -14,91 +14,91 @@ export default function CTAOffer() {
         </div>
 
         {/* Awards Grid Section */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4"> {/* Reduced gap between items */}
+        <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-4 justify-center items-center"> {/* Adjusted gap and alignment */}
           {/* Image 1 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md"> {/* Changed padding and rounded corners */}
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg"> {/* More padding for better spacing */}
             <Image
               src="/assets/images/1.png"
               alt="Award 1"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 2 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/2.png"
               alt="Award 2"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 3 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/3.png"
               alt="Award 3"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 4 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/4.png"
               alt="Award 4"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 5 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/5.png"
               alt="Award 5"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 6 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/6.png"
               alt="Award 6"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 7 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/7.png"
               alt="Award 7"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
 
           {/* Image 8 */}
-          <div className="bg-gray-100 p-2 rounded-lg shadow-md">
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
             <Image
               src="/assets/images/8.png"
               alt="Award 8"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="mx-auto"
             />
           </div>
