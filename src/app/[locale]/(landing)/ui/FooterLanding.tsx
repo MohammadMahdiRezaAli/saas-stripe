@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-import { FaEnvelope, FaPhoneAlt } from 'react-icons/fa'; // Importing Email and Phone icons
+import { FaLinkedin, FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 const navigation = {
   solutions: [
@@ -50,32 +49,41 @@ export default function FooterLanding() {
           <div className="space-y-8">
             <div>
               <h3 className="text-white text-lg">BackPR</h3>
-              <address className="not-italic space-y-2">
+              {/* Added margin-top to create space between BackPR and email */}
+              <address className="not-italic space-y-2 mt-4">
                 <p className="text-sm text-gray-400 flex items-center">
                   <FaEnvelope className="mr-2" /> contact@backpr.com
                 </p>
                 <p className="text-sm text-gray-400 flex items-center">
-                  <FaPhoneAlt className="mr-2" /> (773) 234-7855
+                  {/* Phone number is now clickable */}
+                  <FaPhoneAlt className="mr-2" /> 
+                  <a href="tel:+17732347855" className="hover:text-white">
+                    (773) 234-7855
+                  </a>
                 </p>
                 <p className="text-sm text-gray-400">
                   600 Matheson Blvd W Unit 5, Mississauga, <br />
                   ON L5R 4C1, Canada
                 </p>
               </address>
-              {/* Store Icons with margin adjustment */}
-              <div className="flex space-x-4 mt-4"> {/* Added margin-top */}
-                <Image
-                  src="/assets/img/play-store.svg"
-                  alt="Google Play"
-                  width={30}
-                  height={30}
-                />
-                <Image
-                  src="/assets/img/apple.svg"
-                  alt="App Store"
-                  width={30}
-                  height={30}
-                />
+              {/* Store Icons with links and spacing */}
+              <div className="flex space-x-4 mt-4">
+                <a href="#">
+                  <Image
+                    src="/assets/img/play-store.svg"
+                    alt="Google Play"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+                <a href="#">
+                  <Image
+                    src="/assets/img/apple.svg"
+                    alt="App Store"
+                    width={30}
+                    height={30}
+                  />
+                </a>
               </div>
             </div>
 
