@@ -16,89 +16,89 @@ export default function CTAOffer() {
         {/* Awards Grid Section */}
         <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-4"> {/* Adjusted margins and gaps */}
           {/* Image 1 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md"> {/* Changed rounded-lg to rounded-xl */}
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center"> {/* Ensured square aspect ratio */}
             <Image
               src="/assets/images/1.png"
               alt="Award 1"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 2 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/2.png"
               alt="Award 2"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 3 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/3.png"
               alt="Award 3"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 4 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/4.png"
               alt="Award 4"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 5 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/5.png"
               alt="Award 5"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 6 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/6.png"
               alt="Award 6"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 7 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/7.png"
               alt="Award 7"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
 
           {/* Image 8 */}
-          <div className="bg-gray-100 p-2 rounded-xl shadow-md">
+          <div className="bg-gray-100 p-2 rounded-xl shadow-md w-[150px] h-[150px] flex items-center justify-center">
             <Image
               src="/assets/images/8.png"
               alt="Award 8"
-              width={120}
-              height={120}
+              width={100}
+              height={100}
               className="mx-auto"
             />
           </div>
