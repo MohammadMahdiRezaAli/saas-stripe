@@ -100,8 +100,6 @@ export default function HostingPlans() {
 }
 
 
-import Image from "next/image";
-
 export default function CTAOffer() {
   return (
     <div className="bg-white py-16"> {/* Overall padding for more compact view */}
