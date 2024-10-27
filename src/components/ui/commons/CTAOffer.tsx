@@ -19,7 +19,7 @@ export default function CTAOffer() {
             {/* Image 1 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg"> {/* Adjusted padding */}
               <Image
-                src="/assets/images/capterra.webp"
+                src="/assets/img/capterra.webp"
                 alt="Award 1"
                 width={100}
                 height={100}
@@ -30,7 +30,7 @@ export default function CTAOffer() {
             {/* Image 2 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/capterra2023.webp"
+                src="/assets/img/capterra2023.webp"
                 alt="Award 2"
                 width={100}
                 height={100}
@@ -41,7 +41,7 @@ export default function CTAOffer() {
             {/* Image 3 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/getapp.webp"
+                src="/assets/img/getapp.webp"
                 alt="Award 3"
                 width={100}
                 height={100}
@@ -52,7 +52,7 @@ export default function CTAOffer() {
             {/* Image 4 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/sourceforge2.webp"
+                src="/assets/img/sourceforge2.webp"
                 alt="Award 4"
                 width={100}
                 height={100}
@@ -63,7 +63,7 @@ export default function CTAOffer() {
             {/* Image 5 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/top-performer-summer-white.webp"
+                src="/assets/img/top-performer-summer-white.webp"
                 alt="Award 5"
                 width={100}
                 height={100}
@@ -74,7 +74,7 @@ export default function CTAOffer() {
             {/* Image 6 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/users-love-us-new-white2.webp"
+                src="/assets/img/users-love-us-new-white2.webp"
                 alt="Award 6"
                 width={100}
                 height={100}
@@ -85,7 +85,7 @@ export default function CTAOffer() {
             {/* Image 7 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/softwareAdvice.webp"
+                src="/assets/img/softwareAdvice.webp"
                 alt="Award 7"
                 width={100}
                 height={100}
@@ -96,7 +96,7 @@ export default function CTAOffer() {
             {/* Image 8 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/images/Ca-win.png"
+                src="/assets/img/Ca-win.png"
                 alt="Award 8"
                 width={100}
                 height={100}
