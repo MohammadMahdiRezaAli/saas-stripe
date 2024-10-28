@@ -68,7 +68,7 @@ export default function FooterLanding() {
               </address>
               {/* Store Icons with links and spacing */}
               <div className="flex space-x-4 mt-4">
-                <a href="#">
+                <a href="https://google.com/">
                   <Image
                     src="/assets/img/play-store.svg"
                     alt="Google Play"
@@ -212,3 +212,7 @@ export default function FooterLanding() {
     </footer>
   );
 }
+
+
+
+//FOOTER PREVIOUS COLOR = #111827 ----

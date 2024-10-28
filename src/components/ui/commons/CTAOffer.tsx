@@ -67,7 +67,7 @@ export default function CTAOffer() {
             {/* Image 5 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/top-performer-summer-white.webp"
+                src="/assets/img/medal.svg"
                 alt="Award 5"
                 width={100}
                 height={100}
@@ -78,7 +78,7 @@ export default function CTAOffer() {
             {/* Image 6 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/users-love-us-new-white2.webp"
+                src="/assets/img/medal-s.svg"
                 alt="Award 6"
                 width={100}
                 height={100}
