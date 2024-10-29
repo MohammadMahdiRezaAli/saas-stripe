@@ -7,12 +7,11 @@ export default function CTAOffer() {
     <div
       className="relative py-16 px-4"
       style={{
-        background: "linear-gradient(180deg, #F7F5FF 0%, #1B1340 100%)",
+        background: "linear-gradient(180deg, #EDEAFF 0%, #3C2A6F 100%)",
       }}
     >
-      {/* Text Section */}
       <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold text-[#1B1340] sm:text-5xl leading-tight">
+        <h2 className="text-5xl font-bold text-[#1B1340] sm:text-6xl leading-tight">
           Award-Winning Software
         </h2>
         <p className="mt-4 text-lg text-[#6A4DC7] max-w-xl mx-auto leading-relaxed sm:text-lg">
@@ -34,14 +33,19 @@ export default function CTAOffer() {
         ].map((award, index) => (
           <div
             key={index}
-            className="p-3 rounded-xl shadow-md transition-transform transform hover:scale-102 duration-200 ease-out"
+            className="p-5 rounded-3xl shadow-md transition-transform transform hover:scale-105 duration-200 ease-out relative overflow-hidden"
             style={{
+              width: "100%", 
+              aspectRatio: "1", // Keeps the cards square
               background: "rgba(255, 255, 255, 0.1)",
               border: "1px solid rgba(255, 255, 255, 0.15)",
               backdropFilter: "blur(20px)",
-              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.05)",
+              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 8px rgba(255, 255, 255, 0.1)",
             }}
           >
+            {/* Inner Reflection Effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white opacity-5 rounded-3xl pointer-events-none"></div>
+
             <Image
               src={`/assets/img/${award.src}`}
               alt={award.alt}
