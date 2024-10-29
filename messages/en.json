@@ -8,10 +8,10 @@
     "redirecting": "Redirecting",
     "organizationName": "Project Name"
   },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} es {es Español} pt {pt Português} other {Unknown}}"
-  },
+ // "LocaleSwitcher": {
+ //   "label": "Change language",
+ //   "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} es {es Español} pt {pt Português} other {Unknown}}"
+ // },
   "AdminLayout": {
     "navigation": {
       "general": "General",
