@@ -1,5 +1,5 @@
 "use client";
-import LocaleSwitcher from "@/components/core/LocaleSwitcher";
+// import LocaleSwitcher from "@/components/core/LocaleSwitcher";
 import { constants } from "@/lib/constants";
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { Dialog } from "@headlessui/react";
