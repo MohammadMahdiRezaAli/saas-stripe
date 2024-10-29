@@ -12,160 +12,127 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Navigation array with dropdowns for "Solutions", "Markets", and "Resources"
 const navigation = [
-  { name: "Solutions", href: "/solutions", dropdown: ["Solution 1", "Solution 2", "Solution 3"] },
-  { name: "Markets", href: "/markets", dropdown: ["Market 1", "Market 2"] },
-  { name: "Resources", href: "/resources", dropdown: ["Blog", "Guides", "Help Center"] },
-  { name: "Contact Us", href: "/contact" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Link 1 ", href: "/#" },
+  { name: "Link 2 ", href: "/#" },
+  { name: "Link 3  ", href: "/#" },
 ];
 
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useUser();
-  const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto p-6">
-        {/* Logo Section */}
-        <div className="flex">
-          <Link href="/" className="">
+      <nav
+        className="flex items-center z-40 justify-between lg:justify-around max-w-7xl mx-auto p-6  "
+        aria-label="Global"
+      >
+        <div className="flex  ">
+          <Link href="/" className=" ">
             <Image
-              className="h-12 w-auto"
-              width={160}
-              height={120}
+              className="h-16 -mt-5 w-auto"
+              width={200}
+              height={160}
               src={constants.logoUrl}
               alt="The SaaS Boilerplate"
             />
           </Link>
         </div>
-
-        {/* Navigation Links */}
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item, index) => (
-            <div key={index} className="relative group">
+        <div className="flex -mt-3 items-center">
+          <div className="flex ml-3 lg:ml-0 order-2 lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-7 w-7" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
               <Link
+                key={item.name}
                 href={item.href}
-                onMouseEnter={() => setActiveDropdown(item.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-                className="text-lg font-medium text-black hover:text-gray-700"
+                className="text-sm font-semibold leading-6 text-white"
               >
                 {item.name}
-                {item.dropdown && (
-                  <span className="ml-1">&#x25BC;</span> // Small down arrow
-                )}
               </Link>
-
-              {/* Dropdown Menu */}
-              {item.dropdown && activeDropdown === item.name && (
-                <div
-                  className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2"
-                  onMouseEnter={() => setActiveDropdown(item.name)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  {item.dropdown.map((subItem, subIndex) => (
-                    <Link
-                      key={subIndex}
-                      href={`${item.href}/${subItem.toLowerCase().replace(" ", "-")}`}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      {subItem}
-                    </Link>
-                  ))}
-                </div>
-              )}
+            ))}
+          </div>
+          <div className="lg:ml-32 flex  space-x-7 items-center">
+            <div className=" hidden lg:flex">
+             {/* <LocaleSwitcher />*/}
             </div>
-          ))}
-        </div>
-
-        {/* Profile Icon or Login/Register Link */}
-        <div className="flex items-center space-x-6">
-          <SignedIn>
-            <Link href="/home">
-              {user?.imageUrl ? (
-                <Image
-                  src={user.imageUrl}
-                  alt="User Profile"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-              ) : (
-                <UserCircleIcon className="h-10 w-10 text-gray-800" />
-              )}
-            </Link>
-          </SignedIn>
-          <SignedOut>
-            <Link href="/home" className="text-lg font-medium text-black hover:text-gray-700">
-              Login / Register
-            </Link>
-          </SignedOut>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Bars3Icon className="h-7 w-7" aria-hidden="true" />
-          </button>
+            <SignedIn>
+              <div className="ml-32">
+                <Link href="/home">
+                  {user?.imageUrl && (
+                    <Image
+                      src={user?.imageUrl}
+                      alt="user"
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                  )}
+                </Link>
+              </div>
+            </SignedIn>
+            <SignedOut>
+              <Link href="/home" className="btn-icon">
+                <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
+              </Link>
+            </SignedOut>
+          </div>
         </div>
       </nav>
-
-      {/* Mobile Menu Dialog */}
       <Dialog
         as="div"
         className="lg:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-50 bg-opacity-75 bg-black" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm">
+        <div className="fixed inset-0 z-50" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
           <div className="flex items-center justify-between">
+           
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-400"
               onClick={() => setMobileMenuOpen(false)}
             >
+              <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6">
-              <div className="space-y-4 py-6">
-                {navigation.map((item, index) => (
-                  <div key={index} className="block text-base font-medium text-gray-900">
-                    <Link href={item.href} className="hover:text-gray-700">
-                      {item.name}
-                    </Link>
-                    {item.dropdown && (
-                      <div className="pl-4">
-                        {item.dropdown.map((subItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            href={`${item.href}/${subItem.toLowerCase().replace(" ", "-")}`}
-                            className="block text-sm text-gray-700 hover:text-gray-900"
-                          >
-                            {subItem}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+            <div className="-my-6  ">
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                  >
+                    {item.name}
+                  </a>
                 ))}
               </div>
-              <hr className="bg-gray-200" />
-              <div className="py-6">
+              <hr className="bg-gray-500/25 h-1  " />
+              <div className="py-6  flex flex-col">
                 <Link
                   href="/home"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                 >
                   Login / Register
                 </Link>
+
+                <hr className="bg-gray-500/25 h-1 my-7" />
+                <div className="   lg:hidden">
+                {/* <LocaleSwitcher />*/}
+                </div>
               </div>
             </div>
           </div>
