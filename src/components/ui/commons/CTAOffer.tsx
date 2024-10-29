@@ -45,7 +45,7 @@ export default function CTAOffer() {
             {/* Image 3 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/getapp.webp"
+                src="/assets/img/softwareAdvice.webp"
                 alt="Award 3"
                 width={100}
                 height={100}
@@ -56,7 +56,7 @@ export default function CTAOffer() {
             {/* Image 4 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/sourceforge2.webp"
+                src="/assets/img/Ca-win.png"
                 alt="Award 4"
                 width={100}
                 height={100}
@@ -67,7 +67,7 @@ export default function CTAOffer() {
             {/* Image 5 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/medal.svg"
+                src="/assets/img/medal-winter.svg"
                 alt="Award 5"
                 width={100}
                 height={100}
@@ -89,7 +89,7 @@ export default function CTAOffer() {
             {/* Image 7 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/softwareAdvice.webp"
+                src="/assets/img/medal.svg"
                 alt="Award 7"
                 width={100}
                 height={100}
@@ -100,7 +100,7 @@ export default function CTAOffer() {
             {/* Image 8 */}
             <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
               <Image
-                src="/assets/img/Ca-win.png"
+                src="/assets/img/medal-ent.svg"
                 alt="Award 8"
                 width={100}
                 height={100}
