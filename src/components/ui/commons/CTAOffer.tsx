@@ -33,24 +33,10 @@ export default function CTAOffer() {
         ].map((award, index) => (
           <div
             key={index}
-            className="p-4 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-out"
+            className="p-4 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-out bg-white bg-opacity-20 backdrop-blur-lg border border-white border-opacity-30"
             style={{
-              background:
-                "linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05))",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              backdropFilter: "blur(25px)",
               boxShadow:
                 "0 8px 24px rgba(17, 24, 39, 0.2), 0 4px 12px rgba(255, 255, 255, 0.2)",
-              borderRadius: "15px",
-              transition: "background 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background =
-                "linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1))";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background =
-                "linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05))";
             }}
           >
             <Image
