@@ -47,14 +47,14 @@ const navigation = [
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useUser();
-  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav className="flex items-center justify-between max-w-7xl mx-auto p-6">
         {/* Logo Section */}
         <div className="flex">
-          <Link href="/" className="">
+          <Link href="/" aria-label="Homepage">
             <Image
               className="h-12 w-auto"
               width={160}
@@ -84,7 +84,7 @@ export const HeaderLanding = () => {
               {/* Dropdown Menu */}
               {item.dropdown && activeDropdown === item.name && (
                 <div
-                  className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2"
+                  className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50"
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -93,6 +93,7 @@ export const HeaderLanding = () => {
                       key={subIndex}
                       href={subItem.href}
                       target={subItem.href.startsWith("http") ? "_blank" : "_self"}
+                      rel={subItem.href.startsWith("http") ? "noopener noreferrer" : ""}
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       {subItem.name}
@@ -107,7 +108,7 @@ export const HeaderLanding = () => {
         {/* Profile Icon or Login/Register Link */}
         <div className="flex items-center space-x-6">
           <SignedIn>
-            <Link href="/home">
+            <Link href="/home" aria-label="User Home">
               {user?.imageUrl ? (
                 <Image
                   src={user.imageUrl}
@@ -122,7 +123,11 @@ export const HeaderLanding = () => {
             </Link>
           </SignedIn>
           <SignedOut>
-            <Link href="/home" className="text-lg font-medium text-black hover:text-gray-700">
+            <Link
+              href="/home"
+              className="text-lg font-medium text-black hover:text-gray-700"
+              aria-label="Login or Register"
+            >
               Login / Register
             </Link>
           </SignedOut>
@@ -173,6 +178,7 @@ export const HeaderLanding = () => {
                             key={subIndex}
                             href={subItem.href}
                             target={subItem.href.startsWith("http") ? "_blank" : "_self"}
+                            rel={subItem.href.startsWith("http") ? "noopener noreferrer" : ""}
                             className="block text-sm text-gray-700 hover:text-gray-900"
                           >
                             {subItem.name}
