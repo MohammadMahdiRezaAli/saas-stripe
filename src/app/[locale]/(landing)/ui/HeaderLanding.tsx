@@ -63,7 +63,7 @@ export const HeaderLanding = () => {
           </div>
           <div className="lg:ml-32 flex  space-x-7 items-center">
             <div className=" hidden lg:flex">
-              <LocaleSwitcher />
+             {/* <LocaleSwitcher />*/}
             </div>
             <SignedIn>
               <div className="ml-32">
@@ -131,7 +131,7 @@ export const HeaderLanding = () => {
 
                 <hr className="bg-gray-500/25 h-1 my-7" />
                 <div className="   lg:hidden">
-                  <LocaleSwitcher />
+                {/* <LocaleSwitcher />*/}
                 </div>
               </div>
             </div>
