@@ -12,24 +12,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Navigation array with specific dropdown items linking to external URLs
+// Updated navigation array with external links as requested
 const navigation = [
-  { name: "Solutions", href: "#", dropdown: [
+  {
+    name: "Solutions",
+    href: "#",
+    dropdown: [
       { name: "Solution 1", href: "#" },
       { name: "Solution 2", href: "https://www.google.com" },
-      { name: "Solution 3", href: "#" }
-    ]
+      { name: "Solution 3", href: "#" },
+    ],
   },
-  { name: "Markets", href: "#", dropdown: [
+  {
+    name: "Markets",
+    href: "#",
+    dropdown: [
       { name: "Market 1", href: "https://www.bing.com" },
-      { name: "Market 2", href: "https://www.microsoft.com" }
-    ]
+      { name: "Market 2", href: "https://www.microsoft.com" },
+    ],
   },
-  { name: "Resources", href: "#", dropdown: [
+  {
+    name: "Resources",
+    href: "#",
+    dropdown: [
       { name: "Blog", href: "#" },
       { name: "Guides", href: "#" },
-      { name: "Help Center", href: "#" }
-    ]
+      { name: "Help Center", href: "#" },
+    ],
   },
   { name: "Contact Us", href: "#" },
   { name: "Pricing", href: "#" },
@@ -56,7 +65,7 @@ export const HeaderLanding = () => {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links with Dropdowns */}
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item, index) => (
             <div key={index} className="relative group">
@@ -68,7 +77,7 @@ export const HeaderLanding = () => {
               >
                 {item.name}
                 {item.dropdown && (
-                  <span className="ml-1">&#x25BC;</span> {/* Small down arrow */}
+                  <span className="ml-1">&#x25BC;</span> {/* Down arrow */}
                 )}
               </Link>
 
