@@ -4,7 +4,7 @@ export default function CTAOffer() {
   return (
     <div className="bg-[#EFEAFF] py-16"> {/* Soft background color */}
       <div className="flex justify-center items-center">
-        <div className="w-full max-w-4xl px-8"> {/* Center container with max width */}
+        <div className="w-full max-w-4xl px-8">
           <div className="text-center">
             <h2 className="text-3xl font-semibold tracking-tight text-[#1B1340] sm:text-4xl">
               Award-Winning Software
@@ -15,8 +15,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Awards Grid Section */}
-          <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 justify-center items-center">
-            {/* Array of award images */}
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 justify-center items-center">
             {[
               { src: "capterra.webp", alt: "Capterra Shortlist 2023" },
               { src: "capterra2023.webp", alt: "Capterra Best Value 2023" },
@@ -29,10 +28,10 @@ export default function CTAOffer() {
             ].map((award, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white to-[#F7F5FF] p-2 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-out"
+                className="bg-white bg-opacity-20 backdrop-blur-md p-4 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-out"
                 style={{
-                  border: "1px solid #1B1340",
-                  boxShadow: "0 4px 12px rgba(27, 19, 64, 0.08)"
+                  border: "1px solid rgba(255, 255, 255, 0.3)", // Light, subtle border
+                  boxShadow: "inset 0 4px 6px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1)", // Inner shadow for depth
                 }}
               >
                 <Image
