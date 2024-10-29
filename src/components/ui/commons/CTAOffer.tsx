@@ -10,8 +10,8 @@ export default function CTAOffer() {
         background: "linear-gradient(180deg, #F7F5FF 0%, #1B1340 100%)",
       }}
     >
-      {/* Animated Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-transparent to-blue-500 opacity-20 animate-gradientMove"></div>
+      {/* Enhanced Animated Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-transparent to-blue-500 opacity-20 animate-luxuryGradient"></div>
 
       <div className="relative flex justify-center items-center">
         <div className="w-full max-w-4xl px-8">
@@ -68,20 +68,20 @@ export default function CTAOffer() {
 
       {/* Custom Animation for Background */}
       <style jsx>{`
-        @keyframes gradientMove {
+        @keyframes luxuryGradient {
           0% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
           }
           50% {
-            background-position: 100% 50%;
+            background-position: 100% 100%;
           }
           100% {
-            background-position: 0% 50%;
+            background-position: 0% 0%;
           }
         }
-        .animate-gradientMove {
-          background-size: 200% 200%;
-          animation: gradientMove 10s ease infinite;
+        .animate-luxuryGradient {
+          background-size: 300% 300%;
+          animation: luxuryGradient 12s ease-in-out infinite;
         }
       `}</style>
     </div>
