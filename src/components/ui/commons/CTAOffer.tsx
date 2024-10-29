@@ -2,11 +2,7 @@ import Image from "next/image";
 
 export default function CTAOffer() {
   return (
-
-
-
-
-    <div className="bg-white py-16"> {/* Overall padding for more compact view */}
+    <div className="bg-[#F7F5FF] py-16"> {/* Changed background color */}
       <div className="flex justify-center items-center">
         <div className="w-full max-w-4xl px-8"> {/* Center container with max width */}
           <div className="text-center">
@@ -19,91 +15,75 @@ export default function CTAOffer() {
           </div>
 
           {/* Awards Grid Section */}
-          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 justify-center items-center"> {/* Smaller gap for tighter alignment */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 justify-center items-center">
             {/* Image 1 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg"> {/* Adjusted padding */}
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg"> {/* Updated background and rounded corners */}
               <Image
                 src="/assets/img/capterra.webp"
                 alt="Award 1"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 2 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/capterra2023.webp"
                 alt="Award 2"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 3 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/softwareAdvice.webp"
                 alt="Award 3"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 4 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/Ca-win.png"
                 alt="Award 4"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 5 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/medal-winter.svg"
                 alt="Award 5"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 6 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/medal-s.svg"
                 alt="Award 6"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 7 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/medal.svg"
                 alt="Award 7"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
 
             {/* Image 8 */}
-            <div className="bg-gray-100 p-3 rounded-lg shadow-lg">
+            <div className="bg-[#EDE7F6] p-4 rounded-2xl shadow-lg">
               <Image
                 src="/assets/img/medal-ent.svg"
                 alt="Award 8"
-                width={100}
-                height={100}
                 className="mx-auto"
               />
             </div>
