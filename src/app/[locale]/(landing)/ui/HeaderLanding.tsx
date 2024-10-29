@@ -12,34 +12,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Updated navigation array with external links as requested
+// Navigation array with dropdowns for "Solutions", "Markets", and "Resources"
 const navigation = [
-  {
-    name: "Solutions",
-    href: "#",
-    dropdown: [
-      { name: "Solution 1", href: "#" },
-      { name: "Solution 2", href: "https://www.google.com" },
-      { name: "Solution 3", href: "#" },
-    ],
-  },
-  {
-    name: "Markets",
-    href: "#",
-    dropdown: [
-      { name: "Market 1", href: "https://www.bing.com" },
-      { name: "Market 2", href: "https://www.microsoft.com" },
-    ],
-  },
-  {
-    name: "Resources",
-    href: "#",
-    dropdown: [
-      { name: "Blog", href: "#" },
-      { name: "Guides", href: "#" },
-      { name: "Help Center", href: "#" },
-    ],
-  },
+  { name: "Solutions", href: "#", dropdown: ["Solution 1", "Solution 2", "Solution 3"] },
+  { name: "Markets", href: "#", dropdown: ["Market 1", "Market 2"] },
+  { name: "Resources", href: "#", dropdown: ["Blog", "Guides", "Help Center"] },
   { name: "Contact Us", href: "#" },
   { name: "Pricing", href: "#" },
 ];
@@ -47,14 +24,14 @@ const navigation = [
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user } = useUser();
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav className="flex items-center justify-between max-w-7xl mx-auto p-6">
         {/* Logo Section */}
         <div className="flex">
-          <Link href="/" aria-label="Homepage">
+          <Link href="/" className="">
             <Image
               className="h-12 w-auto"
               width={160}
@@ -65,7 +42,7 @@ export const HeaderLanding = () => {
           </Link>
         </div>
 
-        {/* Navigation Links with Dropdowns */}
+        {/* Navigation Links */}
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item, index) => (
             <div key={index} className="relative group">
@@ -77,26 +54,24 @@ export const HeaderLanding = () => {
               >
                 {item.name}
                 {item.dropdown && (
-                  <span className="ml-1">&#x25BC;</span> {/* Down arrow */}
+                  <span className="ml-1">&#x25BC;</span> {/* Small down arrow */}
                 )}
               </Link>
 
               {/* Dropdown Menu */}
               {item.dropdown && activeDropdown === item.name && (
                 <div
-                  className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50"
+                  className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2"
                   onMouseEnter={() => setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   {item.dropdown.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
-                      href={subItem.href}
-                      target={subItem.href.startsWith("http") ? "_blank" : "_self"}
-                      rel={subItem.href.startsWith("http") ? "noopener noreferrer" : ""}
+                      href="#"
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
-                      {subItem.name}
+                      {subItem}
                     </Link>
                   ))}
                 </div>
@@ -108,7 +83,7 @@ export const HeaderLanding = () => {
         {/* Profile Icon or Login/Register Link */}
         <div className="flex items-center space-x-6">
           <SignedIn>
-            <Link href="/home" aria-label="User Home">
+            <Link href="/home">
               {user?.imageUrl ? (
                 <Image
                   src={user.imageUrl}
@@ -123,11 +98,7 @@ export const HeaderLanding = () => {
             </Link>
           </SignedIn>
           <SignedOut>
-            <Link
-              href="/home"
-              className="text-lg font-medium text-black hover:text-gray-700"
-              aria-label="Login or Register"
-            >
+            <Link href="/home" className="text-lg font-medium text-black hover:text-gray-700">
               Login / Register
             </Link>
           </SignedOut>
@@ -176,12 +147,10 @@ export const HeaderLanding = () => {
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
-                            href={subItem.href}
-                            target={subItem.href.startsWith("http") ? "_blank" : "_self"}
-                            rel={subItem.href.startsWith("http") ? "noopener noreferrer" : ""}
+                            href="#"
                             className="block text-sm text-gray-700 hover:text-gray-900"
                           >
-                            {subItem.name}
+                            {subItem}
                           </Link>
                         ))}
                       </div>
