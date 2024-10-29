@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function CTAOffer() {
@@ -25,7 +27,7 @@ export default function CTAOffer() {
           </div>
 
           {/* Awards Grid Section */}
-          <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4 justify-center items-center">
+          <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4 justify-center items-center" role="grid" aria-label="Award grid">
             {[
               { src: "capterra.webp", alt: "Capterra Shortlist 2023" },
               { src: "capterra2023.webp", alt: "Capterra Best Value 2023" },
