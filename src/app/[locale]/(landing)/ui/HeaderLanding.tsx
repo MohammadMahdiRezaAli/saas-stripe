@@ -14,11 +14,11 @@ import { useState } from "react";
 
 // Navigation array with dropdowns for "Solutions", "Markets", and "Resources"
 const navigation = [
-  { name: "Solutions", href: "#", dropdown: ["Solution 1", "Solution 2", "Solution 3"] },
-  { name: "Markets", href: "#", dropdown: ["Market 1", "Market 2"] },
-  { name: "Resources", href: "#", dropdown: ["Blog", "Guides", "Help Center"] },
-  { name: "Contact Us", href: "#" },
-  { name: "Pricing", href: "#" },
+  { name: "Solutions", href: "/solutions", dropdown: ["Solution 1", "Solution 2", "Solution 3"] },
+  { name: "Markets", href: "/markets", dropdown: ["Market 1", "Market 2"] },
+  { name: "Resources", href: "/resources", dropdown: ["Blog", "Guides", "Help Center"] },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Pricing", href: "/pricing" },
 ];
 
 export const HeaderLanding = () => {
@@ -54,7 +54,7 @@ export const HeaderLanding = () => {
               >
                 {item.name}
                 {item.dropdown && (
-                  <span className="ml-1">&#x25BC;</span> {/* Small down arrow */}
+                  <span className="ml-1">&#x25BC;</span> // Small down arrow
                 )}
               </Link>
 
@@ -68,7 +68,7 @@ export const HeaderLanding = () => {
                   {item.dropdown.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
-                      href="#"
+                      href={`${item.href}/${subItem.toLowerCase().replace(" ", "-")}`}
                       className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                     >
                       {subItem}
@@ -147,7 +147,7 @@ export const HeaderLanding = () => {
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
-                            href="#"
+                            href={`${item.href}/${subItem.toLowerCase().replace(" ", "-")}`}
                             className="block text-sm text-gray-700 hover:text-gray-900"
                           >
                             {subItem}
