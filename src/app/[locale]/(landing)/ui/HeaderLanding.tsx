@@ -14,14 +14,14 @@ const navigation = [
 ];
 
 const productDropdownItems = [
-  { name: "Overview", description: "Welcome to Bettermode! Here are the basics", icon: "✔️" },
-  { name: "Features", description: "Discover templates, customization, analytics, and more", icon: "✨" },
-  { name: "Apps & integrations", description: "Connect your favorite tools with Bettermode", icon: "📦" },
+  { name: "Overview", description: "Welcome to Bettermode! Here are the basics", icon: "✔️", href: "#" },
+  { name: "Features", description: "Discover templates, customization, analytics, and more", icon: "✨", href: "#" },
+  { name: "Apps & integrations", description: "Connect your favorite tools with Bettermode", icon: "📦", href: "#" },
 ];
 
 const extraProductLinks = [
-  { title: "Getting started", description: "Take a tour around and learn how to create out of the box powerful web apps", linkText: "Bettermode Academy" },
-  { title: "What's new?", description: "Take a look at what we have been building to help businesses engage customers.", linkText: "Product updates" },
+  { title: "Getting started", description: "Take a tour around and learn how to create out of the box powerful web apps", linkText: "Bettermode Academy", href: "#" },
+  { title: "What's new?", description: "Take a look at what we have been building to help businesses engage customers.", linkText: "Product updates", href: "#" },
 ];
 
 // Custom hook to handle clicks outside of a referenced element
@@ -41,8 +41,18 @@ export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
   const productDropdownRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
   useOutsideClick(productDropdownRef, () => setProductDropdownOpen(false));
+
+  const openDropdown = () => {
+    clearTimeout(dropdownTimeoutRef.current);
+    setProductDropdownOpen(true);
+  };
+
+  const closeDropdown = () => {
+    dropdownTimeoutRef.current = setTimeout(() => setProductDropdownOpen(false), 200); // Slight delay to avoid accidental closure
+  };
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -66,15 +76,15 @@ export const HeaderLanding = () => {
           {navigation.map((item) => (
             <div
               key={item.name}
-              onMouseEnter={() => item.hasDropdown && setProductDropdownOpen(true)}
-              onMouseLeave={() => item.hasDropdown && setProductDropdownOpen(false)}
+              onMouseEnter={item.hasDropdown ? openDropdown : null}
+              onMouseLeave={item.hasDropdown ? closeDropdown : null}
               className="relative"
             >
               <Link
                 href={item.href}
                 className="text-sm font-semibold text-gray-800 hover:text-gray-600 flex items-center"
-                onFocus={() => item.hasDropdown && setProductDropdownOpen(true)}
-                onBlur={() => item.hasDropdown && setProductDropdownOpen(false)}
+                onFocus={item.hasDropdown ? openDropdown : null}
+                onBlur={item.hasDropdown ? closeDropdown : null}
               >
                 {item.name}
                 {item.hasDropdown && <span className="ml-1 text-gray-500">▼</span>}
@@ -85,19 +95,21 @@ export const HeaderLanding = () => {
                 <div
                   ref={productDropdownRef}
                   className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8 transition-opacity duration-150 ease-in-out"
-                  onMouseEnter={() => setProductDropdownOpen(true)}
-                  onMouseLeave={() => setProductDropdownOpen(false)}
+                  onMouseEnter={openDropdown}
+                  onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
                   <div className="w-1/2 space-y-4">
                     {productDropdownItems.map((subItem) => (
-                      <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md transition duration-200">
-                        <span className="text-lg mr-3">{subItem.icon}</span>
-                        <div>
-                          <p className="font-semibold text-gray-900">{subItem.name}</p>
-                          <p className="text-sm text-gray-600">{subItem.description}</p>
+                      <Link href={subItem.href} key={subItem.name} className="block">
+                        <div className="flex items-start p-2 hover:bg-gray-100 rounded-md transition duration-200">
+                          <span className="text-lg mr-3">{subItem.icon}</span>
+                          <div>
+                            <p className="font-semibold text-gray-900">{subItem.name}</p>
+                            <p className="text-sm text-gray-600">{subItem.description}</p>
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                   
@@ -115,7 +127,7 @@ export const HeaderLanding = () => {
                         <div className="flex flex-col">
                           <p className="font-semibold text-gray-900">{link.title}</p>
                           <p className="text-sm text-gray-600">{link.description}</p>
-                          <Link href="#" className="text-green-500 text-sm font-semibold hover:underline">
+                          <Link href={link.href} className="text-green-500 text-sm font-semibold hover:underline">
                             {link.linkText} →
                           </Link>
                         </div>
