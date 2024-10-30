@@ -84,7 +84,7 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-1/2 transform -translate-x-1/2 mt-2 max-w-screen-lg w-[90vw] h-[351px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex"
+                  className="absolute inset-x-0 mt-2 max-w-screen-xl w-full p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex"
                   onMouseEnter={() => setProductDropdownOpen(true)}
                   onMouseLeave={() => setProductDropdownOpen(false)}
                 >
