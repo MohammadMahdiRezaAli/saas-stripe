@@ -97,7 +97,7 @@ export const HeaderLanding = () => {
                   className={`absolute left-0 mt-2 w-[850px] p-8 rounded-xl bg-white shadow-lg ring-1 ring-gray-200 flex space-x-14 transition-all duration-300 ease-out transform ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
-                  onMouseEnter={openDropdown}
+                  onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)} // Keep open when hovering
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
