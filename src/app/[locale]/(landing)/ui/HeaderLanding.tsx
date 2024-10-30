@@ -105,7 +105,7 @@ export const HeaderLanding = () => {
                         <div className="flex items-start p-3 hover:bg-gray-100 rounded-md transition duration-200">
                           <span className="text-lg mr-3 text-gray-700">{subItem.icon}</span>
                           <div>
-                            <p className="font-semibold text-gray-900 text-lg">{subItem.name}</p>
+                            <p className="font-semibold text-gray-900 text-[14px]">{subItem.name}</p>
                             <p className="text-sm text-gray-600 leading-relaxed">{subItem.description}</p>
                           </div>
                         </div>
@@ -116,16 +116,16 @@ export const HeaderLanding = () => {
                   {/* Right Section with Images and Links */}
                   <div className="w-1/2 bg-gray-100 p-6 rounded-r-lg space-y-6">
                     {extraProductLinks.map((link, index) => (
-                      <div key={link.title} className="flex items-start space-x-4">
+                      <div key={link.title} className="flex items-start space-x-4 mb-8">
                         <Image
                           src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
-                          width={100}
-                          height={60}
-                          className="rounded-md shadow-sm border border-gray-200"
+                          width={120}
+                          height={70}
+                          className="rounded-md shadow-sm transition-transform duration-200 ease-in-out hover:scale-105"
                         />
                         <div className="flex flex-col">
-                          <p className="font-semibold text-gray-900 text-lg">{link.title}</p>
+                          <p className="font-semibold text-gray-900 text-[14px]">{link.title}</p>
                           <p className="text-sm text-gray-600 leading-relaxed">{link.description}</p>
                           <Link href={link.href} className="text-green-500 text-sm font-semibold hover:underline flex items-center">
                             {link.linkText} <span className="ml-1">→</span>
@@ -152,18 +152,6 @@ export const HeaderLanding = () => {
           <Link href="/get-started" className="bg-green-500 text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
             Get started for free
           </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden">
-          <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-            aria-label="Open main menu"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
         </div>
       </nav>
 
