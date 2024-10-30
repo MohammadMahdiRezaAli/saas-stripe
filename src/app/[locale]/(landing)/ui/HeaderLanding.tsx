@@ -1,10 +1,9 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { useOutsideClick } from "@reach/utils"; // Add if not available
 
 const navigation = [
   { name: "Product", href: "/product", hasDropdown: true },
@@ -24,6 +23,19 @@ const extraProductLinks = [
   { title: "Getting started", description: "Take a tour around and learn how to create out of the box powerful web apps", linkText: "Bettermode Academy" },
   { title: "What's new?", description: "Take a look at what we have been building to help businesses engage customers.", linkText: "Product updates" },
 ];
+
+// Custom hook to handle clicks outside of a referenced element
+const useOutsideClick = (ref, callback) => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [ref, callback]);
+};
 
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
