@@ -91,7 +91,7 @@ export const HeaderLanding = () => {
                   {/* Left Section with Overview, Features, Apps */}
                   <div className="w-1/2 space-y-4">
                     {productDropdownItems.map((subItem) => (
-                      <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md">
+                      <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md transition duration-200">
                         <span className="text-lg mr-3">{subItem.icon}</span>
                         <div>
                           <p className="font-semibold text-gray-900">{subItem.name}</p>
@@ -115,7 +115,7 @@ export const HeaderLanding = () => {
                         <div className="flex flex-col">
                           <p className="font-semibold text-gray-900">{link.title}</p>
                           <p className="text-sm text-gray-600">{link.description}</p>
-                          <Link href="#" className="text-green-500 text-sm font-semibold">
+                          <Link href="#" className="text-green-500 text-sm font-semibold hover:underline">
                             {link.linkText} →
                           </Link>
                         </div>
