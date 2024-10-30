@@ -84,12 +84,13 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8 transition-opacity duration-150 ease-in-out"
+                  className="absolute left-0 mt-2 w-[1514px] h-[351px] rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex"
                   onMouseEnter={() => setProductDropdownOpen(true)}
                   onMouseLeave={() => setProductDropdownOpen(false)}
+                  style={{ padding: "0 20px", boxSizing: "border-box" }}
                 >
                   {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 space-y-4">
+                  <div className="w-1/2 space-y-4 p-6 bg-white">
                     {productDropdownItems.map((subItem) => (
                       <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md">
                         <span className="text-lg mr-3">{subItem.icon}</span>
@@ -102,7 +103,7 @@ export const HeaderLanding = () => {
                   </div>
                   
                   {/* Right Section with Images and Links */}
-                  <div className="w-1/2 space-y-6">
+                  <div className="w-1/2 space-y-6 p-6 bg-gray-100">
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
