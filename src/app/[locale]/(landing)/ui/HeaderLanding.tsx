@@ -51,7 +51,7 @@ export const HeaderLanding = () => {
   };
 
   const closeDropdown = () => {
-    dropdownTimeoutRef.current = setTimeout(() => setProductDropdownOpen(false), 200); // Slight delay to avoid accidental closure
+    dropdownTimeoutRef.current = setTimeout(() => setProductDropdownOpen(false), 200);
   };
 
   return (
@@ -99,14 +99,14 @@ export const HeaderLanding = () => {
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 bg-white p-4 rounded-l-lg">
+                  <div className="w-1/2 bg-white p-6 rounded-l-lg space-y-6">
                     {productDropdownItems.map((subItem) => (
                       <Link href={subItem.href} key={subItem.name} className="block">
-                        <div className="flex items-start p-2 hover:bg-gray-100 rounded-md transition duration-200">
-                          <span className="text-lg mr-3">{subItem.icon}</span>
+                        <div className="flex items-start p-3 hover:bg-gray-100 rounded-md transition duration-200">
+                          <span className="text-lg mr-3 text-gray-700">{subItem.icon}</span>
                           <div>
-                            <p className="font-semibold text-gray-900">{subItem.name}</p>
-                            <p className="text-sm text-gray-600">{subItem.description}</p>
+                            <p className="font-semibold text-gray-900 text-lg">{subItem.name}</p>
+                            <p className="text-sm text-gray-600 leading-relaxed">{subItem.description}</p>
                           </div>
                         </div>
                       </Link>
@@ -114,7 +114,7 @@ export const HeaderLanding = () => {
                   </div>
                   
                   {/* Right Section with Images and Links */}
-                  <div className="w-1/2 bg-gray-100 p-4 rounded-r-lg">
+                  <div className="w-1/2 bg-gray-100 p-6 rounded-r-lg space-y-6">
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
@@ -122,13 +122,13 @@ export const HeaderLanding = () => {
                           alt={link.title}
                           width={100}
                           height={60}
-                          className="rounded-md shadow-md"
+                          className="rounded-md shadow-sm border border-gray-200"
                         />
                         <div className="flex flex-col">
-                          <p className="font-semibold text-gray-900">{link.title}</p>
-                          <p className="text-sm text-gray-600">{link.description}</p>
-                          <Link href={link.href} className="text-green-500 text-sm font-semibold hover:underline">
-                            {link.linkText} →
+                          <p className="font-semibold text-gray-900 text-lg">{link.title}</p>
+                          <p className="text-sm text-gray-600 leading-relaxed">{link.description}</p>
+                          <Link href={link.href} className="text-green-500 text-sm font-semibold hover:underline flex items-center">
+                            {link.linkText} <span className="ml-1">→</span>
                           </Link>
                         </div>
                       </div>
