@@ -94,21 +94,21 @@ export const HeaderLanding = () => {
               {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className={`absolute left-0 mt-2 w-[850px] p-8 rounded-xl bg-white shadow-lg ring-1 ring-gray-200 flex space-x-14 transition-all duration-300 ease-out transform ${
+                  className={`absolute left-0 mt-2 w-full max-w-6xl p-8 rounded-lg bg-white shadow-lg ring-1 ring-gray-200 flex space-x-8 transition-all duration-300 ease-out transform ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)} // Keep open when hovering
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 space-y-8">
+                  <div className="w-1/2 space-y-4">
                     {productDropdownItems.map((subItem) => (
                       <Link href={subItem.href} key={subItem.name} className="block">
-                        <div className="flex items-start p-4 rounded-md transition-all duration-200 hover:bg-gray-50">
-                          <span className="text-xl mr-4 text-gray-700 transform transition-transform duration-200 hover:scale-105">{subItem.icon}</span>
+                        <div className="flex items-start p-4 rounded-md border border-gray-200 hover:bg-gray-50">
+                          <span className="text-2xl mr-4 text-gray-700">{subItem.icon}</span>
                           <div>
-                            <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
-                            <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+                            <p className="font-semibold text-gray-900 text-lg">{subItem.name}</p>
+                            <p className="text-gray-600 text-sm">{subItem.description}</p>
                           </div>
                         </div>
                       </Link>
@@ -118,33 +118,23 @@ export const HeaderLanding = () => {
                   {/* Right Section with Images and Links */}
                   <div className="w-1/2 space-y-6">
                     {extraProductLinks.map((link, index) => (
-                      <div key={link.title} className="flex items-start space-x-4 mb-4">
+                      <div key={link.title} className="flex items-start space-x-4">
                         <Image
                           src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
-                          width={150}
-                          height={90}
-                          className="rounded-lg shadow-sm transform transition-transform duration-200 hover:scale-105"
+                          width={180}
+                          height={100}
+                          className="rounded-lg shadow-sm"
                         />
                         <div className="flex flex-col">
-                          <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
-                          <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
-                          <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
+                          <p className="font-semibold text-gray-900 text-lg">{link.title}</p>
+                          <p className="text-gray-600 text-sm">{link.description}</p>
+                          <Link href={link.href} className="text-green-500 font-semibold hover:underline">
                             {link.linkText} <span className="ml-1">→</span>
                           </Link>
                         </div>
                       </div>
                     ))}
-                  </div>
-
-                  {/* Bottom CTA Section */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between space-x-4">
-                    <Link href="/get-started" className="bg-green-500 text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-green-600">
-                      Get started for free
-                    </Link>
-                    <Link href="/browse-templates" className="border border-gray-300 rounded-full px-5 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-                      Browse templates →
-                    </Link>
                   </div>
                 </div>
               )}
@@ -161,7 +151,7 @@ export const HeaderLanding = () => {
           <Link href="/login" className="text-sm font-semibold text-gray-800 hover:text-gray-600">
             Login
           </Link>
-          <Link href="/get-started" className="bg-green-500 text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+          <Link href="/get-started" className="bg-green-500 text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-green-600">
             Get started for free
           </Link>
         </div>
@@ -201,20 +191,20 @@ export const HeaderLanding = () => {
             <div className="-my-6 divide-y divide-gray-200">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                  <Link key={item.name} href={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">
                     {item.name}
                   </Link>
                 ))}
               </div>
 
               <div className="py-6 space-y-2">
-                <Link href="/request-demo" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                <Link href="/request-demo" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">
                   Request Demo
                 </Link>
-                <Link href="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                <Link href="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100">
                   Login
                 </Link>
-                <Link href="/get-started" className="-mx-3 block rounded-lg px-3 py-2.5 bg-green-500 text-base font-semibold leading-7 text-white text-center hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                <Link href="/get-started" className="-mx-3 block rounded-lg px-3 py-2.5 bg-green-500 text-base font-semibold leading-7 text-white text-center hover:bg-green-600">
                   Get started for free
                 </Link>
               </div>
