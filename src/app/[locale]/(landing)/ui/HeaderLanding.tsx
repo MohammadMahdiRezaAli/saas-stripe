@@ -24,7 +24,6 @@ const extraProductLinks = [
   { title: "What's new?", description: "Take a look at what we have been building to help businesses engage customers.", linkText: "Product updates", href: "#" },
 ];
 
-// Custom hook to handle clicks outside of a referenced element
 const useOutsideClick = (ref, callback) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -94,7 +93,7 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8 transition-opacity duration-150 ease-in-out"
+                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white/80 backdrop-blur-md shadow-xl ring-1 ring-black ring-opacity-5 flex space-x-8 transition-all duration-200 ease-in-out transform scale-95"
                   onMouseEnter={openDropdown}
                   onMouseLeave={closeDropdown}
                 >
@@ -120,7 +119,7 @@ export const HeaderLanding = () => {
                         <Image
                           src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
-                          width={120} /* Thumbnail size for prominence */
+                          width={120}
                           height={70}
                           className="rounded-md shadow-sm"
                         />
@@ -187,7 +186,6 @@ export const HeaderLanding = () => {
 
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-200">
-              {/* Mobile Navigation Links */}
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <Link key={item.name} href={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
@@ -196,7 +194,6 @@ export const HeaderLanding = () => {
                 ))}
               </div>
 
-              {/* Action Links in Mobile Menu */}
               <div className="py-6 space-y-2">
                 <Link href="/request-demo" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                   Request Demo
