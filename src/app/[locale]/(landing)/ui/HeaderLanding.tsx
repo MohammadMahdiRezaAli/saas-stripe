@@ -54,7 +54,7 @@ export const HeaderLanding = () => {
               className="h-5 w-auto"
               width={120}
               height={30}
-              src="assets/img/backpr.png" // Correct logo path
+              src="assets/img/backpr.png"
               alt="BackPR Logo"
               priority
             />
@@ -84,15 +84,12 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-full max-w-7xl p-6 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 flex"
+                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8 transition-opacity duration-150 ease-in-out"
                   onMouseEnter={() => setProductDropdownOpen(true)}
                   onMouseLeave={() => setProductDropdownOpen(false)}
-                  style={{
-                    backgroundColor: "#f9f9f9",
-                  }}
                 >
-                  {/* Left Section */}
-                  <div className="w-1/2 bg-white px-6 py-4 space-y-4 rounded-lg">
+                  {/* Left Section with Overview, Features, Apps */}
+                  <div className="w-1/2 space-y-4">
                     {productDropdownItems.map((subItem) => (
                       <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md">
                         <span className="text-lg mr-3">{subItem.icon}</span>
@@ -103,17 +100,17 @@ export const HeaderLanding = () => {
                       </div>
                     ))}
                   </div>
-
-                  {/* Right Section */}
-                  <div className="w-1/2 px-6 py-4 space-y-6 rounded-lg bg-gray-100">
+                  
+                  {/* Right Section with Images and Links */}
+                  <div className="w-1/2 space-y-6">
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
-                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`} // Placeholder images
+                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`}
                           alt={link.title}
-                          width={100}
-                          height={60}
-                          className="rounded-md"
+                          width={120}
+                          height={80}
+                          className="rounded-md shadow-md"
                         />
                         <div className="flex flex-col">
                           <p className="font-semibold text-gray-900">{link.title}</p>
@@ -162,7 +159,45 @@ export const HeaderLanding = () => {
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50 bg-black bg-opacity-25" aria-hidden="true" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10" aria-label="Mobile navigation">
-          {/* Mobile menu code here */}
+          <div className="flex items-center justify-between">
+            <Link href="/" aria-label="Homepage">
+              <Image className="h-5 w-auto" width={120} height={30} src="assets/img/backpr.png" alt="BackPR Logo" priority />
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              aria-label="Close menu"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+
+          <div className="mt-6 flow-root">
+            <div className="-my-6 divide-y divide-gray-200">
+              {/* Mobile Navigation Links */}
+              <div className="space-y-2 py-6">
+                {navigation.map((item) => (
+                  <Link key={item.name} href={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Action Links in Mobile Menu */}
+              <div className="py-6 space-y-2">
+                <Link href="/request-demo" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                  Request Demo
+                </Link>
+                <Link href="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                  Login
+                </Link>
+                <Link href="/get-started" className="-mx-3 block rounded-lg px-3 py-2.5 bg-green-500 text-base font-semibold leading-7 text-white text-center hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                  Get started for free
+                </Link>
+              </div>
+            </div>
+          </div>
         </Dialog.Panel>
       </Dialog>
     </header>
