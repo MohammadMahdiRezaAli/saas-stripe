@@ -54,7 +54,7 @@ export const HeaderLanding = () => {
               className="h-5 w-auto"
               width={120}
               height={30}
-              src="assets/img/backpr.png" // Correct logo path
+              src="assets/img/backpr.png"
               alt="BackPR Logo"
               priority
             />
@@ -84,7 +84,7 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8"
+                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-8 transition-opacity duration-150 ease-in-out"
                   onMouseEnter={() => setProductDropdownOpen(true)}
                   onMouseLeave={() => setProductDropdownOpen(false)}
                 >
@@ -106,11 +106,11 @@ export const HeaderLanding = () => {
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
-                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`} // Placeholder images, replace as needed
+                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`}
                           alt={link.title}
-                          width={100}
-                          height={60}
-                          className="rounded-md"
+                          width={120}
+                          height={80}
+                          className="rounded-md shadow-md"
                         />
                         <div className="flex flex-col">
                           <p className="font-semibold text-gray-900">{link.title}</p>
