@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { useOutsideClick } from "@reach/utils"; // Add if not available
 
 const navigation = [
   { name: "Product", href: "/product", hasDropdown: true },
@@ -27,6 +28,10 @@ const extraProductLinks = [
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productDropdownOpen, setProductDropdownOpen] = useState(false);
+  const productDropdownRef = useRef(null);
+
+  // Close dropdown if clicking outside of it
+  useOutsideClick(productDropdownRef, () => setProductDropdownOpen(false));
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -60,6 +65,8 @@ export const HeaderLanding = () => {
               <Link
                 href={item.href}
                 className="text-sm font-semibold text-gray-800 hover:text-gray-600 flex items-center"
+                onFocus={() => item.hasDropdown && setProductDropdownOpen(true)} // Open on focus for accessibility
+                onBlur={() => item.hasDropdown && setProductDropdownOpen(false)} // Close on blur if moving focus away
               >
                 {item.name}
                 {item.hasDropdown && <span className="ml-1 text-gray-500">▼</span>}
@@ -67,7 +74,12 @@ export const HeaderLanding = () => {
 
               {/* Product Dropdown */}
               {item.hasDropdown && productDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-[400px] rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div
+                  ref={productDropdownRef}
+                  className="absolute left-0 mt-2 w-[400px] rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+                  onMouseEnter={() => setProductDropdownOpen(true)} // Keep open while cursor over dropdown
+                  onMouseLeave={() => setProductDropdownOpen(false)} // Close on mouse leave
+                >
                   <div className="p-4 space-y-4">
                     {productDropdownItems.map((subItem) => (
                       <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md">
