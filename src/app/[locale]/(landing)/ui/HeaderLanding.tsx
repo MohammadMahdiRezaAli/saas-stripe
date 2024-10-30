@@ -118,7 +118,7 @@ export const HeaderLanding = () => {
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
-                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`}
+                          src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
                           width={120}
                           height={80}
