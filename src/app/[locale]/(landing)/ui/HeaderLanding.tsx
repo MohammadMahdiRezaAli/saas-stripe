@@ -24,6 +24,7 @@ const extraProductLinks = [
   { title: "What's new?", description: "Take a look at what we have been building to help businesses engage customers.", linkText: "Product updates", href: "#" },
 ];
 
+// Custom hook to handle clicks outside of a referenced element
 const useOutsideClick = (ref, callback) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -93,19 +94,19 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[700px] p-6 rounded-lg bg-white/80 backdrop-blur-md shadow-xl ring-1 ring-black ring-opacity-5 flex space-x-8 transition-all duration-200 ease-in-out transform scale-95"
+                  className="absolute left-0 mt-2 w-[800px] p-8 rounded-xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-14 transition-all duration-300 ease-out transform scale-95 opacity-0 dropdown dropdown-open"
                   onMouseEnter={openDropdown}
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 bg-white p-6 rounded-l-lg space-y-6">
+                  <div className="w-1/2 bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-200 space-y-8">
                     {productDropdownItems.map((subItem) => (
                       <Link href={subItem.href} key={subItem.name} className="block">
-                        <div className="flex items-start p-3 hover:bg-gray-100 rounded-md transition-all duration-200">
-                          <span className="text-lg mr-3 text-gray-700">{subItem.icon}</span>
+                        <div className="flex items-start p-4 rounded-md transition-all duration-200 hover:bg-gray-100">
+                          <span className="text-lg mr-4 text-gray-700 transform transition-transform duration-200 hover:scale-105">{subItem.icon}</span>
                           <div>
-                            <p className="font-semibold text-gray-900 text-[14px]">{subItem.name}</p>
-                            <p className="text-gray-600 text-[12px] leading-6">{subItem.description}</p>
+                            <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
+                            <p className="text-gray-600 text-[13px]">{subItem.description}</p>
                           </div>
                         </div>
                       </Link>
@@ -113,20 +114,20 @@ export const HeaderLanding = () => {
                   </div>
                   
                   {/* Right Section with Images and Links */}
-                  <div className="w-1/2 bg-gray-100 p-6 rounded-r-lg space-y-6">
+                  <div className="w-1/2 bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-200 space-y-8">
                     {extraProductLinks.map((link, index) => (
-                      <div key={link.title} className="flex items-start space-x-4 mb-8">
+                      <div key={link.title} className="flex items-start space-x-6 mb-8">
                         <Image
                           src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
                           width={120}
-                          height={70}
-                          className="rounded-md shadow-sm"
+                          height={80}
+                          className="rounded-md shadow-sm transform transition-transform duration-200 hover:scale-105"
                         />
                         <div className="flex flex-col">
-                          <p className="font-semibold text-gray-900 text-[14px]">{link.title}</p>
-                          <p className="text-gray-600 text-[12px] leading-6">{link.description}</p>
-                          <Link href={link.href} className="text-green-500 text-[13px] font-semibold hover:underline flex items-center">
+                          <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
+                          <p className="text-gray-600 text-[13px] leading-6">{link.description}</p>
+                          <Link href={link.href} className="text-blue-500 text-[14px] font-semibold hover:underline">
                             {link.linkText} <span className="ml-1">→</span>
                           </Link>
                         </div>
