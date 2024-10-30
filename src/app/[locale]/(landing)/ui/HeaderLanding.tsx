@@ -1,8 +1,7 @@
 "use client";
 import { constants } from "@/lib/constants";
-import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, UserCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -17,7 +16,6 @@ const navigation = [
 
 export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user } = useUser();
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
