@@ -91,10 +91,12 @@ export const HeaderLanding = () => {
               </Link>
 
               {/* Product Dropdown */}
-              {item.hasDropdown && productDropdownOpen && (
+              {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[800px] p-8 rounded-xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-14 transition-all duration-300 ease-out transform scale-95 opacity-0 dropdown dropdown-open"
+                  className={`absolute left-0 mt-2 w-[800px] p-8 rounded-xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 flex space-x-14 transition-all duration-300 ease-out transform ${
+                    productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+                  }`}
                   onMouseEnter={openDropdown}
                   onMouseLeave={closeDropdown}
                 >
