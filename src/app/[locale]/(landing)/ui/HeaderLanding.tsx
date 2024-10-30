@@ -54,7 +54,7 @@ export const HeaderLanding = () => {
               className="h-5 w-auto"
               width={120}
               height={30}
-              src="assets/img/backpr.png"
+              src="assets/img/backpr.png" // Correct logo path
               alt="BackPR Logo"
               priority
             />
@@ -84,13 +84,15 @@ export const HeaderLanding = () => {
               {item.hasDropdown && productDropdownOpen && (
                 <div
                   ref={productDropdownRef}
-                  className="absolute left-0 mt-2 w-[1514px] h-[351px] rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 flex"
+                  className="absolute left-0 mt-2 w-[1514px] h-[351px] p-6 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 flex"
                   onMouseEnter={() => setProductDropdownOpen(true)}
                   onMouseLeave={() => setProductDropdownOpen(false)}
-                  style={{ padding: "0 20px", boxSizing: "border-box" }}
+                  style={{
+                    backgroundColor: "#f9f9f9", // Light gray for right section
+                  }}
                 >
-                  {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 space-y-4 p-6 bg-white">
+                  {/* Left Section */}
+                  <div className="w-1/2 bg-white px-6 py-4 space-y-4 rounded-lg">
                     {productDropdownItems.map((subItem) => (
                       <div key={subItem.name} className="flex items-start p-2 hover:bg-gray-100 rounded-md">
                         <span className="text-lg mr-3">{subItem.icon}</span>
@@ -101,17 +103,17 @@ export const HeaderLanding = () => {
                       </div>
                     ))}
                   </div>
-                  
-                  {/* Right Section with Images and Links */}
-                  <div className="w-1/2 space-y-6 p-6 bg-gray-100">
+
+                  {/* Right Section */}
+                  <div className="w-1/2 px-6 py-4 space-y-6 rounded-lg">
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
-                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`}
+                          src={`/assets/img/${index === 0 ? 'IMG1' : 'IMG2'}.png`} // Placeholder images
                           alt={link.title}
-                          width={120}
-                          height={80}
-                          className="rounded-md shadow-md"
+                          width={100}
+                          height={60}
+                          className="rounded-md"
                         />
                         <div className="flex flex-col">
                           <p className="font-semibold text-gray-900">{link.title}</p>
