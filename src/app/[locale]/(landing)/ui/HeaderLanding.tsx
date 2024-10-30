@@ -99,7 +99,7 @@ export const HeaderLanding = () => {
                   onMouseLeave={closeDropdown}
                 >
                   {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 space-y-4">
+                  <div className="w-1/2 bg-white p-4 rounded-l-lg">
                     {productDropdownItems.map((subItem) => (
                       <Link href={subItem.href} key={subItem.name} className="block">
                         <div className="flex items-start p-2 hover:bg-gray-100 rounded-md transition duration-200">
@@ -114,14 +114,14 @@ export const HeaderLanding = () => {
                   </div>
                   
                   {/* Right Section with Images and Links */}
-                  <div className="w-1/2 space-y-6">
+                  <div className="w-1/2 bg-gray-100 p-4 rounded-r-lg">
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
                           src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
                           alt={link.title}
-                          width={120}
-                          height={80}
+                          width={100}
+                          height={60}
                           className="rounded-md shadow-md"
                         />
                         <div className="flex flex-col">
