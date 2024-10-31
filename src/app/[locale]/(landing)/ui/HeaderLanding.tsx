@@ -92,7 +92,7 @@ export const HeaderLanding = () => {
             onMouseEnter={openMegamenu} // Keeps the menu open while hovering
             onMouseLeave={closeMegamenu} // Closes it when not hovering
           >
-            <div className="flex justify-center">
+            <div className="flex justify-center pl-0">
               <div className="w-full max-w-7xl flex space-x-14 px-6 py-8">
                 {/* Left Section with Overview, Features, Apps */}
                 <div className="w-1/2 space-y-8">
