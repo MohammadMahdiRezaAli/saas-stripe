@@ -56,8 +56,6 @@ const HeroLanding = () => {
               >
                 Login
               </button>
-              {/* Custom button component - commented out */}
-              {/* <BtnBuyService /> */}
             </div>
 
             {/* Benefits Section with Glassmorphic Effect */}
@@ -82,14 +80,14 @@ const HeroLanding = () => {
               ))}
             </div>
 
-            {/* Partner Logos Section with Smaller Size and More Spacing */}
+            {/* Partner Logos Section with Filter to Turn Black to White */}
             <div className="mt-24 flex justify-center gap-8"> {/* Increased margin-top for more spacing */}
               {["partners (1)", "partners (2)", "partners (3)", "partners (4)", "partners (5)"].map((brand, index) => (
                 <img
                   key={index}
                   src={`/assets/img/${brand}.svg`} // Path to each logo image
                   alt={`${brand} logo`}
-                  className="h-4 opacity-80 hover:opacity-100 transition-opacity" // Smaller height and light opacity
+                  className="h-4 opacity-80 hover:opacity-100 transition-opacity filter invert brightness-0"
                 />
               ))}
             </div>
