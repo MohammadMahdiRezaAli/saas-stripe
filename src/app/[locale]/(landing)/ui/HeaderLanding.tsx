@@ -64,7 +64,7 @@ export const HeaderLanding = () => {
               className="h-6 w-auto"
               width={120}
               height={30}
-              src="/assets/img/backpr.png" // Adjusted logo path
+              src="/assets/img/backpr.png"
               alt="BackPR Logo"
               priority
             />
@@ -94,47 +94,49 @@ export const HeaderLanding = () => {
               {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className={`absolute left-0 mt-2 w-[850px] p-8 rounded-lg bg-white shadow-lg ring-1 ring-gray-200 flex space-x-14 transition-all duration-300 ease-out transform ${
+                  className={`absolute left-0 right-0 mt-1 w-full p-8 bg-white shadow-lg ring-1 ring-gray-200 flex justify-center transition-all duration-300 ease-out ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)}
                   onMouseLeave={closeDropdown}
                 >
-                  {/* Left Section with Overview, Features, Apps */}
-                  <div className="w-1/2 space-y-8">
-                    {productDropdownItems.map((subItem) => (
-                      <Link href={subItem.href} key={subItem.name} className="block">
-                        <div className="flex items-start p-4 rounded-md transition-all duration-200 hover:bg-gray-50">
-                          <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
-                          <div>
-                            <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
-                            <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+                  <div className="max-w-7xl w-full flex space-x-14 bg-white p-8 rounded-xl shadow-md">
+                    {/* Left Section with Overview, Features, Apps */}
+                    <div className="w-1/2 space-y-8">
+                      {productDropdownItems.map((subItem) => (
+                        <Link href={subItem.href} key={subItem.name} className="block">
+                          <div className="flex items-start p-4 rounded-md transition-all duration-200 hover:bg-blue-100">
+                            <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
+                            <div>
+                              <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
+                              <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Right Section with Images and Links */}
+                    <div className="w-1/2 space-y-6">
+                      {extraProductLinks.map((link, index) => (
+                        <div key={link.title} className="flex items-start space-x-4">
+                          <Image
+                            src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
+                            alt={link.title}
+                            width={150}
+                            height={90}
+                            className="rounded-lg shadow-sm"
+                          />
+                          <div className="flex flex-col">
+                            <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
+                            <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
+                            <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
+                              {link.linkText} →
+                            </Link>
                           </div>
                         </div>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Right Section with Images and Links */}
-                  <div className="w-1/2 space-y-6">
-                    {extraProductLinks.map((link, index) => (
-                      <div key={link.title} className="flex items-start space-x-4">
-                        <Image
-                          src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`} // Corrected image paths
-                          alt={link.title}
-                          width={150}
-                          height={90}
-                          className="rounded-lg shadow-sm"
-                        />
-                        <div className="flex flex-col">
-                          <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
-                          <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
-                          <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
-                            {link.linkText} →
-                          </Link>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
