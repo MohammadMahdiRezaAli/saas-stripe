@@ -61,7 +61,7 @@ export default function CTAOffer() {
                   alt={award.alt}
                   width={70}
                   height={70}
-                  className="mx-auto filter brightness-0 invert"
+                  className="mx-auto"
                   title={award.alt}
                 />
               </div>
