@@ -1,5 +1,5 @@
 import React from "react";
-import BtnBuyService from "./BtnBuyService"; // This line can remain as it only imports the component
+//import BtnBuyService from "./BtnBuyService"; // This line can remain as it only imports the component
 import { useTranslations } from "next-intl";
 import { FaChartLine, FaShieldAlt, FaRobot, FaUsers, FaMoneyBillWave, FaPercentage } from 'react-icons/fa';
 
