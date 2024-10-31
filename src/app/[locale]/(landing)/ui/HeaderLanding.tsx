@@ -24,6 +24,7 @@ const extraProductLinks = [
   { title: "What's new?", description: "Explore updates to help businesses engage customers.", linkText: "Product updates", href: "#" },
 ];
 
+// Custom hook to handle clicks outside of a referenced element
 const useOutsideClick = (ref, callback) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -42,6 +43,7 @@ export const HeaderLanding = () => {
   const megamenuRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
 
+  // Ensure the megamenu doesn't disappear when hovering over it
   useOutsideClick(megamenuRef, () => setMegamenuOpen(false));
 
   const openMegamenu = () => {
@@ -54,7 +56,7 @@ export const HeaderLanding = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#1B1340] shadow-lg w-full">
+    <header className="sticky top-0 z-50 bg-white shadow-md w-full">
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4 relative" aria-label="Global">
         {/* Logo */}
         <div className="flex items-center">
@@ -63,7 +65,7 @@ export const HeaderLanding = () => {
               className="h-6 w-auto"
               width={120}
               height={30}
-              src="/assets/img/backpr.png"
+              src="/assets/img/backpr-night.png"
               alt="BackPR Logo"
               priority
             />
@@ -81,15 +83,15 @@ export const HeaderLanding = () => {
             >
               <Link
                 href={item.href}
-                className="text-sm font-semibold text-[#E0E0F1] hover:text-[#8A66FF] flex items-center"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-600 flex items-center"
               >
                 {item.name}
                 {item.hasMegamenu && (
                   <span className="ml-1">
                     <Image
-                      src="/assets/img/arrow-down.png"
+                      src="/assets/img/arrow-down.png" // Using custom arrow image
                       alt="Dropdown arrow"
-                      width={10}
+                      width={10} // Adjust width for a minimal, luxury look
                       height={10}
                       className="opacity-70 transition-opacity duration-200 hover:opacity-100"
                     />
@@ -104,26 +106,28 @@ export const HeaderLanding = () => {
         {megamenuOpen && (
           <div
             ref={megamenuRef}
-            className="absolute left-0 right-0 top-full bg-[#1B1340] shadow-lg ring-1 ring-[#5C3DFF] transition-opacity duration-300 ease-out z-40 rounded-lg"
-            onMouseEnter={openMegamenu}
-            onMouseLeave={closeMegamenu}
+            className="absolute left-0 right-0 top-full bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40 rounded-lg"
+            onMouseEnter={openMegamenu} // Keeps the menu open while hovering
+            onMouseLeave={closeMegamenu} // Adds a delay for closing
           >
             <div className="max-w-7xl mx-auto flex space-x-14 px-6 py-8">
+              {/* Left Section with Overview, Features, Apps */}
               <div className="w-1/2 space-y-8">
                 {productMegamenuItems.map((subItem) => (
                   <Link href={subItem.href} key={subItem.name} className="block">
-                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#34248f]">
-                      <span className="text-xl mr-4 text-[#8A66FF]">{subItem.icon}</span>
+                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-50">
+                      <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
                       <div>
-                        <p className="font-semibold text-[#F0EFFF] text-[16px]">{subItem.name}</p>
-                        <p className="text-[#E0E0F1] text-[14px] leading-6">{subItem.description}</p>
+                        <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
+                        <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
                       </div>
                     </div>
                   </Link>
                 ))}
               </div>
 
-              <div className="w-1/2 space-y-6 pl-6 border-l border-[#5C3DFF]">
+              {/* Right Section with Images and Links */}
+              <div className="w-1/2 space-y-6 pl-6 border-l border-gray-200">
                 {extraProductLinks.map((link, index) => (
                   <div key={link.title} className="flex items-start space-x-4">
                     <Image
@@ -134,9 +138,9 @@ export const HeaderLanding = () => {
                       className="rounded-lg shadow-sm"
                     />
                     <div className="flex flex-col">
-                      <p className="font-semibold text-[#F0EFFF] text-[16px]">{link.title}</p>
-                      <p className="text-[#E0E0F1] text-[14px] leading-6">{link.description}</p>
-                      <Link href={link.href} className="text-[#5C3DFF] text-[14px] font-semibold hover:underline">
+                      <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
+                      <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
+                      <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
                         {link.linkText} →
                       </Link>
                     </div>
@@ -149,14 +153,14 @@ export const HeaderLanding = () => {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex lg:items-center lg:space-x-3">
-          <Link href="/request-demo" className="text-sm font-semibold text-[#E0E0F1] hover:text-[#8A66FF]">
+          <Link href="/request-demo" className="text-sm font-semibold text-gray-800 hover:text-gray-600">
             Request Demo
           </Link>
-          <span className="text-[#8A66FF]">|</span>
-          <Link href="/login" className="text-sm font-semibold text-[#E0E0F1] hover:text-[#8A66FF]">
+          <span className="text-gray-300">|</span>
+          <Link href="/login" className="text-sm font-semibold text-gray-800 hover:text-gray-600">
             Login
           </Link>
-          <Link href="/get-started" className="bg-[#5C3DFF] text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-[#8A66FF]">
+          <Link href="/get-started" className="bg-green-500 text-white rounded-full px-5 py-2 text-sm font-semibold hover:bg-green-600">
             Get started for free
           </Link>
         </div>
@@ -173,18 +177,18 @@ export const HeaderLanding = () => {
           </button>
         </div>
       </nav>
-
+      
       {/* Mobile Menu Dialog */}
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50 bg-black bg-opacity-25" aria-hidden="true" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#1B1340] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-[#8A66FF]">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" aria-label="Homepage">
               <Image className="h-6 w-auto" width={120} height={30} src="/assets/img/backpr.png" alt="BackPR Logo" priority />
             </Link>
             <button
               type="button"
-              className="rounded-md p-2.5 text-[#E0E0F1] hover:text-[#8A66FF]"
+              className="rounded-md p-2.5 text-gray-400 hover:text-gray-500"
               aria-label="Close menu"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -194,20 +198,20 @@ export const HeaderLanding = () => {
 
           <div className="mt-6 space-y-2">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="block px-3 py-2 text-base font-semibold text-[#E0E0F1] hover:bg-[#34248f]">
+              <Link key={item.name} href={item.href} className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-100">
                 {item.name}
               </Link>
             ))}
           </div>
 
           <div className="py-6 space-y-2">
-            <Link href="/request-demo" className="block px-3 py-2.5 text-base font-semibold text-[#E0E0F1] hover:bg-[#34248f]">
+            <Link href="/request-demo" className="block px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-100">
               Request Demo
             </Link>
-            <Link href="/login" className="block px-3 py-2.5 text-base font-semibold text-[#E0E0F1] hover:bg-[#34248f]">
+            <Link href="/login" className="block px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-100">
               Login
             </Link>
-            <Link href="/get-started" className="block px-3 py-2.5 bg-[#5C3DFF] text-white text-center font-semibold hover:bg-[#8A66FF]">
+            <Link href="/get-started" className="block px-3 py-2.5 bg-green-500 text-white text-center font-semibold hover:bg-green-600">
               Get started for free
             </Link>
           </div>
