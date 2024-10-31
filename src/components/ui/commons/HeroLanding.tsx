@@ -1,6 +1,7 @@
 import React from "react";
 import BtnBuyService from "./BtnBuyService";
 import { useTranslations } from "next-intl";
+import { FaChartLine, FaShieldAlt, FaRobot, FaUsers, FaMoneyBillWave, FaPercentage } from 'react-icons/fa';
 
 const HeroLanding = () => {
   const t = useTranslations("Index");
@@ -57,6 +58,34 @@ const HeroLanding = () => {
               </button>
               {/* Custom button component */}
               <BtnBuyService />
+            </div>
+
+            {/* Benefits Section */}
+            <div className="mt-12 flex flex-wrap justify-center gap-6">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaChartLine className="text-teal-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">10X Traffic</span>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaMoneyBillWave className="text-indigo-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">3X Sales</span>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaRobot className="text-green-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">Automate Marketing</span>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaUsers className="text-purple-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">Join Our Family</span>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaShieldAlt className="text-red-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">Increase Security</span>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+                <FaPercentage className="text-yellow-400 text-2xl" />
+                <span className="text-gray-200 font-semibold">Reduce Costs</span>
+              </div>
             </div>
           </div>
         </div>
