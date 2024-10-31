@@ -100,7 +100,6 @@ export const HeaderLanding = () => {
                   style={{
                     backgroundColor: 'white',
                     borderTop: '1px solid #E5E7EB', // Light gray border for separation
-                    padding: '20px',
                     marginTop: '0px', // Align directly under the header with no gap
                   }}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)}
