@@ -6,10 +6,10 @@ const HeroLanding = () => {
   const t = useTranslations("Index");
 
   return (
-    <div className="relative isolate pt-8" style={{ backgroundColor: '#121212' }}>
+    <div className="relative isolate pt-6" style={{ backgroundColor: '#121212' }}>
       {/* Animated Background */}
       <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-gradient"
+        className="absolute inset-x-0 -top-32 -z-10 transform-gpu overflow-hidden blur-3xl animate-gradient"
         aria-hidden="true"
       >
         <div
@@ -23,18 +23,18 @@ const HeroLanding = () => {
       </div>
 
       {/* Main Content */}
-      <div className="py-20 sm:py-32 flex justify-center items-center min-h-screen">
+      <div className="py-16 sm:py-20 flex justify-center items-center min-h-screen">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             {/* Title with Reduced Size */}
             <h1
-              className="text-5xl font-extrabold tracking-tight sm:text-6xl bg-clip-text text-transparent
+              className="text-4xl font-extrabold tracking-tight sm:text-5xl bg-clip-text text-transparent
                          bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 leading-tight shadow-md"
               style={{ letterSpacing: "0.05em" }}
             >
               {t("title") || "Multiply Your Revenue. Minimize Your Effort."}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-gray-400">
+            <p className="mt-4 text-lg leading-relaxed text-gray-400">
               BackPR powers serious growth for those who already play at the top. We don&apos;t
               promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical
               precision.
