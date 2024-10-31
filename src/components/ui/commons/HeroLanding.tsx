@@ -34,13 +34,14 @@ const HeroLanding = () => {
             >
               {t("title") || "Multiply Your Revenue. Minimize Your Effort."}
             </h1>
-            <p className="mt-6 py-3 text-lg leading-9 text-gray-400">
+            {/* Reduced Margin for Hero Text */}
+            <p className="mt-6 text-lg leading-relaxed text-gray-400">
               BackPR powers serious growth for those who already play at the top. We don&apos;t
               promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical
               precision.
             </p>
 
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-8 flex items-center justify-center gap-x-6">
               {/* Primary Button */}
               <button
                 className="px-8 py-3 bg-gradient-to-br from-[#4C34B5] to-[#7F5AC0] text-white font-semibold rounded-full
