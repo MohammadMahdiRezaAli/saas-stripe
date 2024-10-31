@@ -34,7 +34,7 @@ const HeroLanding = () => {
               </h1>
               <p className="mt-6 py-3 text-lg leading-8 text-gray-300">
               BackPR powers serious growth for those who already play at the top. 
-              We don't promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical precision.
+              We dont promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical precision.
               </p>
 
               <div className="  mt-10 flex items-center justify-center gap-x-6">
