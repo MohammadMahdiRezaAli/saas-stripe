@@ -4,51 +4,141 @@ import { useTranslations } from "next-intl";
 
 const HeroLanding = () => {
   const t = useTranslations("Index");
+
   return (
     <>
+      {/* Header Section with Gradient Background */}
       <div
-        className="isolate pt-14"
         style={{
-          background: "linear-gradient(to right, #442EA1, #1B1340)",
+          background: "linear-gradient(to right, #1B1340, #442EA1)",
+          color: "#FFFFFF",
+          padding: "4rem 2rem",
+          textAlign: "center",
+          borderRadius: "0.5rem",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
         }}
       >
-        {/* Animated Background */}
-        <div
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-gradient"
-          aria-hidden="true"
+        <h1
+          style={{
+            fontSize: "3rem",
+            fontWeight: "bold",
+            margin: "0",
+            lineHeight: "1.2",
+          }}
         >
-          <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] 
-                       bg-gradient-to-tr from-[#442EA1] to-[#1B1340] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          Multiply Your Revenue. Minimize Your Effort.
+        </h1>
+        <p style={{ fontSize: "1.2rem", marginTop: "1rem", opacity: "0.8" }}>
+          BackPR powers serious growth for those who already play at the top. We
+          don't promise quick fixes—we build digital ecosystems that drive 10X
+          revenue with surgical precision.
+        </p>
+        <div style={{ marginTop: "2rem" }}>
+          <button
             style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+              padding: "0.8rem 1.6rem",
+              fontSize: "1rem",
+              fontWeight: "bold",
+              borderRadius: "30px",
+              backgroundColor: "#442EA1",
+              color: "#FFFFFF",
+              border: "none",
+              marginRight: "1rem",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+              cursor: "pointer",
             }}
-          />
+            onMouseEnter={(e) =>
+              (e.target.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            Get Started for Free
+          </button>
+          <button
+            style={{
+              padding: "0.8rem 1.6rem",
+              fontSize: "1rem",
+              fontWeight: "bold",
+              borderRadius: "30px",
+              backgroundColor: "#1B1340",
+              color: "#FFFFFF",
+              border: "none",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) =>
+              (e.target.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            Login
+          </button>
         </div>
+      </div>
 
-        {/* Main Content */}
-        <div className="py-24 sm:py-40">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <h1
-                className="text-4xl font-bold tracking-tight sm:text-6xl bg-clip-text 
-                           text-transparent bg-gradient-to-r from-pink-50 via-green-200 to-sky-300"
-              >
-                {t("title")}
-              </h1>
-              <p className="mt-6 py-3 text-lg leading-8 text-gray-300">
-                BackPR powers serious growth for those who already play at the
-                top. We dont promise quick fixes—we build digital ecosystems
-                that drive 10X revenue with surgical precision.
-              </p>
-
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <BtnBuyService />
-              </div>
-            </div>
+      {/* Features Section */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+          padding: "4rem 2rem",
+          backgroundColor: "#1B1340",
+          color: "#FFFFFF",
+          gap: "2rem",
+        }}
+      >
+        {[
+          { title: "Proton Mail", description: "Encrypt emails and secure communications." },
+          { title: "Proton Calendar", description: "Plan with privacy in mind." },
+          { title: "Proton Drive", description: "Store files with encrypted cloud storage." },
+          { title: "Proton VPN", description: "Browse safely with encrypted connection." },
+          { title: "Proton Pass", description: "Protect passwords with end-to-end encryption." },
+          { title: "Proton Wallet", description: "Safeguard Bitcoin and manage securely." },
+        ].map((feature, index) => (
+          <div
+            key={index}
+            style={{
+              background: "linear-gradient(to bottom right, #442EA1, #1B1340)",
+              padding: "2rem",
+              borderRadius: "15px",
+              width: "18rem",
+              textAlign: "center",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+              transition: "transform 0.3s ease",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => (e.target.style.transform = "scale(1.05)")}
+            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+          >
+            <h3 style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
+              {feature.title}
+            </h3>
+            <p style={{ fontSize: "1rem", marginTop: "0.5rem", opacity: "0.9" }}>
+              {feature.description}
+            </p>
+            <button
+              style={{
+                marginTop: "1rem",
+                padding: "0.6rem 1.2rem",
+                fontSize: "0.9rem",
+                fontWeight: "bold",
+                borderRadius: "20px",
+                backgroundColor: "#442EA1",
+                color: "#FFFFFF",
+                border: "none",
+                transition: "background 0.3s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "#1B1340")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "#442EA1")}
+            >
+              Learn More
+            </button>
           </div>
-        </div>
+        ))}
       </div>
     </>
   );
