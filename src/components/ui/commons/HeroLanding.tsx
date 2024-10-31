@@ -1,5 +1,5 @@
 import React from "react";
-import BtnBuyService from "./BtnBuyService";
+import BtnBuyService from "./BtnBuyService"; // This line can remain as it only imports the component
 import { useTranslations } from "next-intl";
 import { FaChartLine, FaShieldAlt, FaRobot, FaUsers, FaMoneyBillWave, FaPercentage } from 'react-icons/fa';
 
@@ -57,7 +57,7 @@ const HeroLanding = () => {
                 Login
               </button>
               {/* Custom button component */}
-              <BtnBuyService />
+              {/* <BtnBuyService /> Commented out to remove the extra buttons */}
             </div>
 
             {/* Benefits Section with Glassmorphic Effect */}
