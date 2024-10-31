@@ -40,7 +40,7 @@ const navigation = {
 
 export default function FooterLanding() {
   return (
-    <footer className="bg-gray-900" aria-labelledby="footer-heading">
+    <footer className="bg-[#1B1340] text-[#E0E0F1]" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -48,25 +48,22 @@ export default function FooterLanding() {
         <div className="xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="space-y-8">
             <div>
-              <h3 className="text-white text-lg">BackPR</h3>
-              {/* Added margin-top to create space between BackPR and email */}
-              <address className="not-italic space-y-2 mt-4">
-                <p className="text-sm text-gray-400 flex items-center">
+              <h3 className="text-[#F0EFFF] text-lg font-bold">BackPR</h3>
+              <address className="not-italic space-y-2 mt-4 text-sm text-[#C2B6E6]">
+                <p className="flex items-center">
                   <FaEnvelope className="mr-2" /> contact@backpr.com
                 </p>
-                <p className="text-sm text-gray-400 flex items-center">
-                  {/* Phone number is now clickable */}
+                <p className="flex items-center">
                   <FaPhoneAlt className="mr-2" /> 
                   <a href="tel:+17732347855" className="hover:text-white">
                     (773) 234-7855
                   </a>
                 </p>
-                <p className="text-sm text-gray-400">
+                <p>
                   600 Matheson Blvd W Unit 5, Mississauga, <br />
                   ON L5R 4C1, Canada
                 </p>
               </address>
-              {/* Store Icons with links and spacing */}
               <div className="flex space-x-4 mt-4">
                 <a href="https://google.com/">
                   <Image
@@ -88,14 +85,13 @@ export default function FooterLanding() {
             </div>
 
             <div className="space-y-4">
-              <h4 className="text-white text-md">Social Media</h4>
+              <h4 className="text-[#F0EFFF] text-md font-semibold">Social Media</h4>
               <div className="flex space-x-4">
-                {/* Social Media Icons */}
                 {navigation.social.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-500 hover:text-gray-400"
+                    className="text-[#8A66FF] hover:text-[#F0EFFF]"
                   >
                     <span className="sr-only">{item.name}</span>
                     {item.icon}
@@ -109,15 +105,13 @@ export default function FooterLanding() {
           <div className="grid grid-cols-2 gap-8 col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Solutions
-                </h3>
+                <h3 className="text-sm font-semibold leading-6 text-[#F0EFFF]">Solutions</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                        className="text-sm leading-6 text-[#C2B6E6] hover:text-[#F0EFFF]"
                       >
                         {item.name}
                       </a>
@@ -126,15 +120,13 @@ export default function FooterLanding() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Resources
-                </h3>
+                <h3 className="text-sm font-semibold leading-6 text-[#F0EFFF]">Resources</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                        className="text-sm leading-6 text-[#C2B6E6] hover:text-[#F0EFFF]"
                       >
                         {item.name}
                       </a>
@@ -146,15 +138,13 @@ export default function FooterLanding() {
 
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Industry
-                </h3>
+                <h3 className="text-sm font-semibold leading-6 text-[#F0EFFF]">Industry</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.industry.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                        className="text-sm leading-6 text-[#C2B6E6] hover:text-[#F0EFFF]"
                       >
                         {item.name}
                       </a>
@@ -163,15 +153,13 @@ export default function FooterLanding() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-white">
-                  Company
-                </h3>
+                <h3 className="text-sm font-semibold leading-6 text-[#F0EFFF]">Company</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-sm leading-6 text-gray-300 hover:text-white"
+                        className="text-sm leading-6 text-[#C2B6E6] hover:text-[#F0EFFF]"
                       >
                         {item.name}
                       </a>
@@ -184,12 +172,12 @@ export default function FooterLanding() {
         </div>
 
         {/* Footer Bottom Section */}
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+        <div className="mt-16 border-t border-[#8A66FF]/20 pt-8 sm:mt-20 lg:mt-24">
           <div className="flex flex-col lg:flex-row justify-between">
-            <p className="text-xs leading-5 text-gray-400">
+            <p className="text-xs leading-5 text-[#C2B6E6]">
               &copy; {new Date().getFullYear()} BackPR.com, Inc. All rights reserved.
             </p>
-            <div className="text-xs flex space-x-3 items-center leading-5 text-gray-400">
+            <div className="text-xs flex space-x-3 items-center leading-5 text-[#C2B6E6]">
               <span>USD / EUR / JPY / GBP / CHF / ₿ / Ł</span>
               <Image
                 src="/assets/img/stripeCards.png"
@@ -212,7 +200,3 @@ export default function FooterLanding() {
     </footer>
   );
 }
-
-
-
-//FOOTER PREVIOUS COLOR = #111827 ----
