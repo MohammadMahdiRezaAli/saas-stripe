@@ -94,18 +94,18 @@ export const HeaderLanding = () => {
               {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className={`absolute left-0 right-0 mt-1 w-full bg-white shadow-lg ring-1 ring-gray-200 transition-all duration-300 ease-out ${
+                  className={`absolute left-0 right-0 mt-2 bg-white shadow-lg ring-1 ring-gray-200 transition-all duration-300 ease-out ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="max-w-7xl mx-auto w-full flex space-x-14 bg-white p-8 rounded-md shadow-md">
+                  <div className="max-w-7xl mx-auto w-full flex space-x-14 bg-white p-8 rounded-lg shadow-lg">
                     {/* Left Section with Overview, Features, Apps */}
                     <div className="w-1/2 space-y-8">
                       {productDropdownItems.map((subItem) => (
                         <Link href={subItem.href} key={subItem.name} className="block">
-                          <div className="flex items-start p-4 rounded-md transition-all duration-200 hover:bg-blue-100">
+                          <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-100">
                             <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
                             <div>
                               <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
