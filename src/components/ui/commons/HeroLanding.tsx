@@ -1,10 +1,7 @@
 import React from "react";
 // import BtnBuyService from "./BtnBuyService"; // Remove if not used
-import { useTranslations } from "next-intl"; // Only if you use 't'
 
 const HeroLanding = () => {
-  const t = useTranslations("Index"); // Only if 't' is used
-
   return (
     <>
       {/* Header Section with Gradient Background */}
