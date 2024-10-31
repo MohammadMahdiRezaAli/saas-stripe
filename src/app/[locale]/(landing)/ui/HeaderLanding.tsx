@@ -94,13 +94,18 @@ export const HeaderLanding = () => {
               {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className={`absolute left-0 right-0 mt-2 bg-white shadow-lg ring-1 ring-gray-200 transition-all duration-300 ease-out ${
+                  className={`absolute left-0 top-full w-screen bg-white flex space-x-14 p-8 transition-all duration-300 ease-out transform ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
+                  style={{
+                    backgroundColor: 'white',
+                    borderTop: '1px solid #E5E7EB', // Light gray border for separation
+                    padding: '20px',
+                  }}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="max-w-7xl mx-auto w-full flex space-x-14 bg-white p-8 rounded-lg shadow-lg">
+                  <div className="max-w-7xl mx-auto w-full flex space-x-14 bg-white p-8 rounded-lg">
                     {/* Left Section with Overview, Features, Apps */}
                     <div className="w-1/2 space-y-8">
                       {productDropdownItems.map((subItem) => (
