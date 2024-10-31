@@ -55,8 +55,8 @@ export const HeaderLanding = () => {
   };
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4 bg-white shadow-sm" aria-label="Global">
+    <header className="sticky top-0 z-50 bg-white shadow-md w-full">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-4" aria-label="Global">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" aria-label="Homepage">
@@ -64,8 +64,8 @@ export const HeaderLanding = () => {
               className="h-6 w-auto"
               width={120}
               height={30}
-              src="assets/img/bettermode.png"
-              alt="Bettermode Logo"
+              src="/assets/img/backpr.png" // Adjusted logo path
+              alt="BackPR Logo"
               priority
             />
           </Link>
@@ -120,7 +120,7 @@ export const HeaderLanding = () => {
                     {extraProductLinks.map((link, index) => (
                       <div key={link.title} className="flex items-start space-x-4">
                         <Image
-                          src={`/assets/img/${index === 0 ? 'academy' : 'updates'}.jpg`}
+                          src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`} // Corrected image paths
                           alt={link.title}
                           width={150}
                           height={90}
@@ -175,7 +175,7 @@ export const HeaderLanding = () => {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" aria-label="Homepage">
-              <Image className="h-6 w-auto" width={120} height={30} src="assets/img/bettermode.png" alt="Bettermode Logo" priority />
+              <Image className="h-6 w-auto" width={120} height={30} src="/assets/img/backpr.png" alt="BackPR Logo" priority />
             </Link>
             <button
               type="button"
