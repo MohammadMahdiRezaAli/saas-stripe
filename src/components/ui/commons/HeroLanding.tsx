@@ -60,29 +60,41 @@ const HeroLanding = () => {
               <BtnBuyService />
             </div>
 
-            {/* Benefits Section */}
+            {/* Benefits Section with Glassmorphic Effect */}
             <div className="mt-12 flex flex-wrap justify-center gap-6">
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaChartLine className="text-teal-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">10X Traffic</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaMoneyBillWave className="text-indigo-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">3X Sales</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaRobot className="text-green-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">Automate Marketing</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaUsers className="text-purple-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">Join Our Family</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaShieldAlt className="text-red-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">Increase Security</span>
               </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition transform hover:scale-105 shadow-lg">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(75,0,130,0.2)] backdrop-blur-md 
+                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(128,0,128,0.4)]
+                              transition-transform transform hover:scale-105 hover:shadow-[rgba(128,0,128,0.6)]">
                 <FaPercentage className="text-yellow-400 text-2xl" />
                 <span className="text-gray-200 font-semibold">Reduce Costs</span>
               </div>
