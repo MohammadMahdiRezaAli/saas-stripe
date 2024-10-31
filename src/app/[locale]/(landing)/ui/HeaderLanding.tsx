@@ -86,7 +86,17 @@ export const HeaderLanding = () => {
                 className="text-sm font-semibold text-gray-800 hover:text-gray-600 flex items-center"
               >
                 {item.name}
-                {item.hasMegamenu && <span className="ml-1 text-gray-500">▼</span>}
+                {item.hasMegamenu && (
+                  <span className="ml-1">
+                    <Image
+                      src="/assets/img/arrow-down.png" // Using custom arrow image
+                      alt="Dropdown arrow"
+                      width={10} // Adjust width for a minimal, luxury look
+                      height={10}
+                      className="opacity-70 transition-opacity duration-200 hover:opacity-100"
+                    />
+                  </span>
+                )}
               </Link>
             </div>
           ))}
