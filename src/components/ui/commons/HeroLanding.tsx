@@ -26,14 +26,15 @@ const HeroLanding = () => {
       <div className="py-24 sm:py-40 flex justify-center items-center min-h-screen">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            {/* Title with Enhanced Gradient & Style */}
+            {/* Title with Reduced Size */}
             <h1
-              className="text-8xl font-black tracking-tight bg-clip-text text-transparent 
+              className="text-5xl font-extrabold tracking-tight sm:text-6xl bg-clip-text text-transparent
                          bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 leading-tight shadow-md"
+              style={{ letterSpacing: "0.05em" }}
             >
               {t("title") || "Multiply Your Revenue. Minimize Your Effort."}
             </h1>
-            <p className="mt-6 py-3 text-xl leading-9 text-gray-400">
+            <p className="mt-6 py-3 text-lg leading-9 text-gray-400">
               BackPR powers serious growth for those who already play at the top. We don&apos;t
               promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical
               precision.
