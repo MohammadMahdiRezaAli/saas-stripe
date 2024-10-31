@@ -1,5 +1,4 @@
 import React from "react";
-// import BtnBuyService from "./BtnBuyService"; // Remove if not used
 
 const HeroLanding = () => {
   return (
@@ -45,10 +44,8 @@ const HeroLanding = () => {
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
               cursor: "pointer",
             }}
-            onMouseEnter={(e) =>
-              (e.target.style.transform = "scale(1.05)")
-            }
-            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             Get Started for Free
           </button>
@@ -65,10 +62,8 @@ const HeroLanding = () => {
               boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
               cursor: "pointer",
             }}
-            onMouseEnter={(e) =>
-              (e.target.style.transform = "scale(1.05)")
-            }
-            onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             Login
           </button>
