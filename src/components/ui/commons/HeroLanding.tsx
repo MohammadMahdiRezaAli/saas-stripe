@@ -33,10 +33,8 @@ const HeroLanding = () => {
                 {t("title")}
               </h1>
               <p className="mt-6 py-3 text-lg leading-8 text-gray-300">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi
-                officiis fugit odio totam rem, expedita asperiores odit, id
-                ipsum debitis consequuntur culpa amet quae voluptates vitae!
-                Quisquam, iure quos! Sequi.
+              BackPR powers serious growth for those who already play at the top. 
+              We don't promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical precision.
               </p>
 
               <div className="  mt-10 flex items-center justify-center gap-x-6">
