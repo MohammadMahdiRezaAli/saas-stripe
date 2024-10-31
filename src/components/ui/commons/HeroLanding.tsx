@@ -49,23 +49,13 @@ const HeroLanding = () => {
               >
                 Get started for free
               </button>
-
-              {/* Commented out the white button */}
-              {/* <button
-                className="px-8 py-3 bg-white text-[#4C34B5] font-semibold rounded-full border border-[#7F5AC0]
-                           shadow-md transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"
-              >
-                Get started for free
-              </button> */}
-
-              {/* Commented out the short blue Login button */}
-              {/* <button
-                className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-full
+              {/* Secondary Button with Border and Glow */}
+              <button
+                className="px-8 py-3 bg-[#2D1A60] text-white font-semibold rounded-full border border-[#7F5AC0]
                            shadow-md transform transition duration-300 hover:scale-105 hover:brightness-110 hover:shadow-lg"
               >
                 Login
-              </button> */}
-
+              </button>
               {/* Custom button component */}
               <BtnBuyService />
             </div>
