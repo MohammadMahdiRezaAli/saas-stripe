@@ -1,5 +1,5 @@
 import React from "react";
-//import BtnBuyService from "./BtnBuyService"; // This line can remain as it only imports the component
+// import BtnBuyService from "./BtnBuyService"; // This line can remain as it only imports the component
 import { useTranslations } from "next-intl";
 import { FaChartLine, FaShieldAlt, FaRobot, FaUsers, FaMoneyBillWave, FaPercentage } from 'react-icons/fa';
 
@@ -56,8 +56,8 @@ const HeroLanding = () => {
               >
                 Login
               </button>
-              {/* Custom button component */}
-              {/* <BtnBuyService /> Commented out to remove the extra buttons */}
+              {/* Custom button component - commented out */}
+              {/* <BtnBuyService /> */}
             </div>
 
             {/* Benefits Section with Glassmorphic Effect */}
@@ -75,6 +75,11 @@ const HeroLanding = () => {
                   className="flex items-center space-x-3 p-4 rounded-lg bg-[rgba(255,255,255,0.1)] backdrop-blur-md 
                              border border-[rgba(255,255,255,0.2)] shadow-lg shadow-[rgba(92,61,255,0.4)]
                              transition-transform transform hover:scale-105 hover:shadow-[rgba(92,61,255,0.6)]"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.07)", // Light frosted glass effect
+                    boxShadow: "0px 4px 15px rgba(92, 61, 255, 0.15)", // Subtle purple shadow
+                    backdropFilter: "blur(8px)", // Frosted blur effect
+                  }}
                 >
                   <benefit.icon className={`${benefit.color} text-2xl`} />
                   <span className="text-[#E0E0F1] font-semibold">{benefit.label}</span>
