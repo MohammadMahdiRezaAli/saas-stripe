@@ -94,27 +94,28 @@ export const HeaderLanding = () => {
               {item.hasDropdown && (
                 <div
                   ref={productDropdownRef}
-                  className={`absolute left-0 top-full w-screen bg-white shadow-lg ring-1 ring-gray-200 transition-all duration-300 ease-out transform ${
+                  className={`absolute left-0 top-full w-full max-w-screen-xl bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out transform ${
                     productDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
                   }`}
                   style={{
-                    backgroundColor: 'white',
-                    borderTop: '1px solid #E5E7EB', // Light gray border for separation
-                    marginTop: '0px', // Align directly under the header with no gap
+                    borderTop: '1px solid #E5E7EB',
+                    marginTop: '0px',
+                    padding: '16px 32px',
+                    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
                   }}
                   onMouseEnter={() => clearTimeout(dropdownTimeoutRef.current)}
                   onMouseLeave={closeDropdown}
                 >
-                  <div className="max-w-7xl mx-auto w-full flex space-x-14 p-8">
+                  <div className="flex justify-between">
                     {/* Left Section with Overview, Features, Apps */}
-                    <div className="w-1/2 space-y-8">
+                    <div className="w-1/2 space-y-4">
                       {productDropdownItems.map((subItem) => (
                         <Link href={subItem.href} key={subItem.name} className="block">
-                          <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-100">
+                          <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-50">
                             <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
                             <div>
                               <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
-                              <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+                              <p className="text-gray-600 text-[14px]">{subItem.description}</p>
                             </div>
                           </div>
                         </Link>
@@ -122,7 +123,7 @@ export const HeaderLanding = () => {
                     </div>
 
                     {/* Right Section with Images and Links */}
-                    <div className="w-1/2 space-y-6">
+                    <div className="w-1/2 space-y-6 pl-6 border-l border-gray-200">
                       {extraProductLinks.map((link, index) => (
                         <div key={link.title} className="flex items-start space-x-4">
                           <Image
@@ -134,7 +135,7 @@ export const HeaderLanding = () => {
                           />
                           <div className="flex flex-col">
                             <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
-                            <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
+                            <p className="text-gray-600 text-[14px]">{link.description}</p>
                             <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
                               {link.linkText} →
                             </Link>
@@ -175,46 +176,6 @@ export const HeaderLanding = () => {
           </button>
         </div>
       </nav>
-
-      {/* Mobile Menu Dialog */}
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-25" aria-hidden="true" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <Link href="/" aria-label="Homepage">
-              <Image className="h-6 w-auto" width={120} height={30} src="/assets/img/backpr.png" alt="BackPR Logo" priority />
-            </Link>
-            <button
-              type="button"
-              className="rounded-md p-2.5 text-gray-400 hover:text-gray-500"
-              aria-label="Close menu"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="mt-6 space-y-2">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-100">
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          <div className="py-6 space-y-2">
-            <Link href="/request-demo" className="block px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-100">
-              Request Demo
-            </Link>
-            <Link href="/login" className="block px-3 py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-100">
-              Login
-            </Link>
-            <Link href="/get-started" className="block px-3 py-2.5 bg-green-500 text-white text-center font-semibold hover:bg-green-600">
-              Get started for free
-            </Link>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
     </header>
   );
 };
