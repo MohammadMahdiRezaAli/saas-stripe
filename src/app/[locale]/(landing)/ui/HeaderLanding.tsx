@@ -89,43 +89,47 @@ export const HeaderLanding = () => {
           <div
             ref={megamenuRef}
             className="absolute left-0 top-full w-full bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40"
+            onMouseEnter={openMegamenu} // Keeps the menu open while hovering
+            onMouseLeave={closeMegamenu} // Closes it when not hovering
           >
-            <div className="max-w-7xl mx-auto flex space-x-14 px-6 py-8">
-              {/* Left Section with Overview, Features, Apps */}
-              <div className="w-1/2 space-y-8">
-                {productMegamenuItems.map((subItem) => (
-                  <Link href={subItem.href} key={subItem.name} className="block">
-                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-50">
-                      <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
-                      <div>
-                        <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
-                        <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+            <div className="w-full flex justify-center">
+              <div className="w-full max-w-7xl flex space-x-14 px-6 py-8">
+                {/* Left Section with Overview, Features, Apps */}
+                <div className="w-1/2 space-y-8">
+                  {productMegamenuItems.map((subItem) => (
+                    <Link href={subItem.href} key={subItem.name} className="block">
+                      <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-blue-50">
+                        <span className="text-xl mr-4 text-gray-700">{subItem.icon}</span>
+                        <div>
+                          <p className="font-semibold text-gray-900 text-[16px]">{subItem.name}</p>
+                          <p className="text-gray-600 text-[14px] leading-6">{subItem.description}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Right Section with Images and Links */}
+                <div className="w-1/2 space-y-6 pl-6 border-l border-gray-200">
+                  {extraProductLinks.map((link, index) => (
+                    <div key={link.title} className="flex items-start space-x-4">
+                      <Image
+                        src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
+                        alt={link.title}
+                        width={150}
+                        height={90}
+                        className="rounded-lg shadow-sm"
+                      />
+                      <div className="flex flex-col">
+                        <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
+                        <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
+                        <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
+                          {link.linkText} →
+                        </Link>
                       </div>
                     </div>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Right Section with Images and Links */}
-              <div className="w-1/2 space-y-6 pl-6 border-l border-gray-200">
-                {extraProductLinks.map((link, index) => (
-                  <div key={link.title} className="flex items-start space-x-4">
-                    <Image
-                      src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
-                      alt={link.title}
-                      width={150}
-                      height={90}
-                      className="rounded-lg shadow-sm"
-                    />
-                    <div className="flex flex-col">
-                      <p className="font-semibold text-gray-900 text-[16px]">{link.title}</p>
-                      <p className="text-gray-600 text-[14px] leading-6">{link.description}</p>
-                      <Link href={link.href} className="text-green-500 text-[14px] font-semibold hover:underline">
-                        {link.linkText} →
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
