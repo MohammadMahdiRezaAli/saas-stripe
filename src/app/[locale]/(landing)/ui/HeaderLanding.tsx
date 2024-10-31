@@ -41,11 +41,19 @@ export const HeaderLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megamenuOpen, setMegamenuOpen] = useState(false);
   const megamenuRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
+  // Ensure the megamenu doesn't disappear when hovering over it
   useOutsideClick(megamenuRef, () => setMegamenuOpen(false));
 
-  const openMegamenu = () => setMegamenuOpen(true);
-  const closeMegamenu = () => setMegamenuOpen(false);
+  const openMegamenu = () => {
+    clearTimeout(dropdownTimeoutRef.current);
+    setMegamenuOpen(true);
+  };
+
+  const closeMegamenu = () => {
+    dropdownTimeoutRef.current = setTimeout(() => setMegamenuOpen(false), 200);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md w-full">
@@ -88,9 +96,9 @@ export const HeaderLanding = () => {
         {megamenuOpen && (
           <div
             ref={megamenuRef}
-            className="absolute left-0 right-0 top-full bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40"
+            className="absolute left-0 right-0 top-full bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40 rounded-lg"
             onMouseEnter={openMegamenu} // Keeps the menu open while hovering
-            onMouseLeave={closeMegamenu} // Closes it when not hovering
+            onMouseLeave={closeMegamenu} // Adds a delay for closing
           >
             <div className="max-w-7xl mx-auto flex space-x-14 px-6 py-8">
               {/* Left Section with Overview, Features, Apps */}
