@@ -88,11 +88,11 @@ export const HeaderLanding = () => {
         {megamenuOpen && (
           <div
             ref={megamenuRef}
-            className="absolute left-0 top-full w-full bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40"
+            className="absolute left-0 top-full w-screen bg-white shadow-lg ring-1 ring-gray-200 transition-opacity duration-300 ease-out z-40"
             onMouseEnter={openMegamenu} // Keeps the menu open while hovering
             onMouseLeave={closeMegamenu} // Closes it when not hovering
           >
-            <div className="w-full flex justify-center">
+            <div className="flex justify-center">
               <div className="w-full max-w-7xl flex space-x-14 px-6 py-8">
                 {/* Left Section with Overview, Features, Apps */}
                 <div className="w-1/2 space-y-8">
