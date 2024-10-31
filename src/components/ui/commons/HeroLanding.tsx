@@ -6,7 +6,7 @@ const HeroLanding = () => {
   const t = useTranslations("Index");
   return (
     <>
-      <div className="isolate pt-14">
+      <div className="isolate pt-14" style={{ backgroundColor: '#1B1340' }}>
         {/* Animated Background */}
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-gradient"
