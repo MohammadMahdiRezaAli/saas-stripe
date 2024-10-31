@@ -6,7 +6,7 @@ const HeroLanding = () => {
   const t = useTranslations("Index");
 
   return (
-    <div className="relative isolate pt-14" style={{ backgroundColor: '#1B1340' }}>
+    <div className="relative isolate pt-14" style={{ backgroundColor: '#121212' }}>
       {/* Animated Background */}
       <div
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 animate-gradient"
@@ -28,13 +28,12 @@ const HeroLanding = () => {
           <div className="mx-auto max-w-2xl text-center">
             {/* Title with Enhanced Gradient & Style */}
             <h1
-              className="text-6xl font-extrabold tracking-wider sm:text-7xl bg-clip-text text-transparent
-                         bg-gradient-to-r from-[#C4C4C4] via-[#F0F0F0] to-[#82E9D5] shadow-lg"
-              style={{ letterSpacing: "0.05em" }}
+              className="text-8xl font-black tracking-tight bg-clip-text text-transparent 
+                         bg-gradient-to-r from-gray-300 via-gray-500 to-gray-800 leading-tight shadow-md"
             >
               {t("title") || "Multiply Your Revenue. Minimize Your Effort."}
             </h1>
-            <p className="mt-6 py-3 text-xl leading-9 text-[#E0E0F1]">
+            <p className="mt-6 py-3 text-xl leading-9 text-gray-400">
               BackPR powers serious growth for those who already play at the top. We don&apos;t
               promise quick fixes—we build digital ecosystems that drive 10X revenue with surgical
               precision.
