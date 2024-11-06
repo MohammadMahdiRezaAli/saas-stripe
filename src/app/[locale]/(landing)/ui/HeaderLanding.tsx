@@ -114,7 +114,7 @@ export const HeaderLanding = () => {
             onMouseLeave={closeMegamenu}
           >
             <div className="grid grid-cols-3 gap-4 w-full mb-4">
-              {productMegamenuItems.map((subItem, index) => (
+              {productMegamenuItems.map((subItem) => (
                 <Link href={subItem.href} key={subItem.name} className="block">
                   <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#F7F5FF]">
                     <span className="text-xl mr-4 text-[#6D4AFF]">{subItem.icon}</span>
