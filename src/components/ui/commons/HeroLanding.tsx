@@ -1,10 +1,7 @@
 import React from "react";
-import { useTranslations } from "next-intl";
 import { FaEnvelope, FaShieldAlt, FaCloud, FaKey, FaCalendar, FaWallet } from 'react-icons/fa';
 
 const HeroLanding = () => {
-  const t = useTranslations("Index");
-
   return (
     <div className="relative isolate pt-6" style={{ backgroundColor: '#F7F5FF' }}>
       {/* Main Content */}
