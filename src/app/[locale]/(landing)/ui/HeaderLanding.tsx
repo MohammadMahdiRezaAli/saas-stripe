@@ -109,7 +109,7 @@ export const HeaderLanding = () => {
         {megamenuOpen && (
           <div
             ref={megamenuRef}
-            className="absolute left-0 right-0 top-full max-w-4xl mx-auto bg-white shadow-lg ring-1 ring-[#6D4AFF] transition-opacity duration-300 ease-out z-40 rounded-lg p-6"
+            className="absolute left-0 right-0 top-full max-w-4xl mx-auto bg-white shadow-lg ring-1 ring-[#F2F3F5] transition-opacity duration-300 ease-out z-40 rounded-lg p-6 border border-[#F2F3F5]"
             onMouseEnter={openMegamenu}
             onMouseLeave={closeMegamenu}
           >
@@ -126,9 +126,9 @@ export const HeaderLanding = () => {
                 </Link>
               ))}
             </div>
-            <div className="border-t border-[#6D4AFF] pt-4">
+            <div className="border-t border-[#F2F3F5] pt-4">
               <Link href={premiumProductLink.href} className="block">
-                <div className="flex items-start p-4">
+                <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#F7F5FF]">
                   <span className="text-xl mr-4 text-[#6D4AFF]">{premiumProductLink.icon}</span>
                   <div>
                     <p className="font-semibold text-[#1B1340] text-[16px]">{premiumProductLink.name}</p>
