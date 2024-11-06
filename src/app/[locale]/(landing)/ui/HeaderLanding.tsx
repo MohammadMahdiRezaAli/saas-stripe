@@ -14,15 +14,20 @@ const navigation = [
 ];
 
 const productMegamenuItems = [
-  { name: "Overview", description: "Welcome to Bettermode! Here are the basics", icon: "🔘", href: "#" },
-  { name: "Features", description: "Discover templates, customization, analytics, and more", icon: "✨", href: "#" },
-  { name: "Apps & integrations", description: "Connect your favorite tools with Bettermode", icon: "📦", href: "#" },
+  { name: "Proton Mail", description: "Encrypted email that's private by default.", icon: "📧", href: "#" },
+  { name: "Proton Calendar", description: "Your calendar is a record of your life. Keep it safe.", icon: "📅", href: "#" },
+  { name: "Proton Drive", description: "Secure cloud storage that gives you control of your data.", icon: "📂", href: "#" },
+  { name: "Proton VPN", description: "Your gateway to online freedom.", icon: "🔒", href: "#" },
+  { name: "Proton Pass", description: "An encrypted password manager that protects your online identity.", icon: "🔑", href: "#" },
+  { name: "Proton Wallet", description: "Store and transact Bitcoin privately with an encrypted self-custody wallet.", icon: "💰", href: "#" },
 ];
 
-const extraProductLinks = [
-  { title: "Getting started", description: "Take a tour around and learn how to create powerful web apps", linkText: "Bettermode Academy", href: "#" },
-  { title: "What's new?", description: "Explore updates to help businesses engage customers.", linkText: "Product updates", href: "#" },
-];
+const premiumProductLink = {
+  name: "Proton For Business",
+  description: "Improve the security of your business and comply with data protection laws.",
+  icon: "🏢",
+  href: "#",
+};
 
 const useOutsideClick = (ref, callback) => {
   useEffect(() => {
@@ -104,15 +109,15 @@ export const HeaderLanding = () => {
         {megamenuOpen && (
           <div
             ref={megamenuRef}
-            className="absolute left-0 right-0 top-full bg-[#F7F5FF] shadow-lg ring-1 ring-[#6D4AFF] transition-opacity duration-300 ease-out z-40 rounded-lg"
+            className="absolute left-0 right-0 top-full max-w-4xl mx-auto bg-white shadow-lg ring-1 ring-[#6D4AFF] transition-opacity duration-300 ease-out z-40 rounded-lg p-6"
             onMouseEnter={openMegamenu}
             onMouseLeave={closeMegamenu}
           >
-            <div className="max-w-7xl mx-auto flex space-x-14 px-6 py-8">
-              <div className="w-1/2 space-y-8">
+            <div className="flex space-x-8">
+              <div className="grid grid-cols-2 gap-4 w-2/3">
                 {productMegamenuItems.map((subItem) => (
                   <Link href={subItem.href} key={subItem.name} className="block">
-                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#E7E3FF]">
+                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#F7F5FF]">
                       <span className="text-xl mr-4 text-[#6D4AFF]">{subItem.icon}</span>
                       <div>
                         <p className="font-semibold text-[#1B1340] text-[16px]">{subItem.name}</p>
@@ -123,25 +128,18 @@ export const HeaderLanding = () => {
                 ))}
               </div>
 
-              <div className="w-1/2 space-y-6 pl-6 border-l border-[#6D4AFF]">
-                {extraProductLinks.map((link, index) => (
-                  <div key={link.title} className="flex items-start space-x-4">
-                    <Image
-                      src={`/assets/img/${index === 0 ? 'dm' : 'dml'}.jpg`}
-                      alt={link.title}
-                      width={150}
-                      height={90}
-                      className="rounded-lg shadow-sm"
-                    />
-                    <div className="flex flex-col">
-                      <p className="font-semibold text-[#1B1340] text-[16px]">{link.title}</p>
-                      <p className="text-[#1B1340] text-[14px] leading-6">{link.description}</p>
-                      <Link href={link.href} className="text-[#6D4AFF] text-[14px] font-semibold hover:underline">
-                        {link.linkText} →
-                      </Link>
+              <div className="w-1/3 pl-6 border-l border-[#6D4AFF]">
+                <div className="mt-4">
+                  <Link href={premiumProductLink.href} className="block p-4">
+                    <div className="flex items-start">
+                      <span className="text-xl mr-4 text-[#6D4AFF]">{premiumProductLink.icon}</span>
+                      <div>
+                        <p className="font-semibold text-[#1B1340] text-[16px]">{premiumProductLink.name}</p>
+                        <p className="text-[#1B1340] text-[14px] leading-6">{premiumProductLink.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
