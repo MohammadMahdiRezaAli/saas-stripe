@@ -113,34 +113,29 @@ export const HeaderLanding = () => {
             onMouseEnter={openMegamenu}
             onMouseLeave={closeMegamenu}
           >
-            <div className="flex space-x-8">
-              <div className="grid grid-cols-2 gap-4 w-2/3">
-                {productMegamenuItems.map((subItem) => (
-                  <Link href={subItem.href} key={subItem.name} className="block">
-                    <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#F7F5FF]">
-                      <span className="text-xl mr-4 text-[#6D4AFF]">{subItem.icon}</span>
-                      <div>
-                        <p className="font-semibold text-[#1B1340] text-[16px]">{subItem.name}</p>
-                        <p className="text-[#1B1340] text-[14px] leading-6">{subItem.description}</p>
-                      </div>
+            <div className="grid grid-cols-3 gap-4 w-full mb-4">
+              {productMegamenuItems.map((subItem, index) => (
+                <Link href={subItem.href} key={subItem.name} className="block">
+                  <div className="flex items-start p-4 rounded-lg transition-all duration-200 hover:bg-[#F7F5FF]">
+                    <span className="text-xl mr-4 text-[#6D4AFF]">{subItem.icon}</span>
+                    <div>
+                      <p className="font-semibold text-[#1B1340] text-[16px]">{subItem.name}</p>
+                      <p className="text-[#1B1340] text-[14px] leading-6">{subItem.description}</p>
                     </div>
-                  </Link>
-                ))}
-              </div>
-
-              <div className="w-1/3 pl-6 border-l border-[#6D4AFF]">
-                <div className="mt-4">
-                  <Link href={premiumProductLink.href} className="block p-4">
-                    <div className="flex items-start">
-                      <span className="text-xl mr-4 text-[#6D4AFF]">{premiumProductLink.icon}</span>
-                      <div>
-                        <p className="font-semibold text-[#1B1340] text-[16px]">{premiumProductLink.name}</p>
-                        <p className="text-[#1B1340] text-[14px] leading-6">{premiumProductLink.description}</p>
-                      </div>
-                    </div>
-                  </Link>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="border-t border-[#6D4AFF] pt-4">
+              <Link href={premiumProductLink.href} className="block">
+                <div className="flex items-start p-4">
+                  <span className="text-xl mr-4 text-[#6D4AFF]">{premiumProductLink.icon}</span>
+                  <div>
+                    <p className="font-semibold text-[#1B1340] text-[16px]">{premiumProductLink.name}</p>
+                    <p className="text-[#1B1340] text-[14px] leading-6">{premiumProductLink.description}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         )}
